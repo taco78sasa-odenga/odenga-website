@@ -9,7 +9,11 @@ Thumbs.db
 *.png
 *.jpg
 *.jpeg
-!assets/**            # ただし assets 配下の画像（ロゴ等）は追跡する
+!assets/
+!assets/*.png
+!assets/*.jpg
+!assets/*.jpeg
+!assets/*.svg
 
 # 依存物（将来ツールを足した場合）
 node_modules/

@@ -41,7 +41,7 @@
   /* ---------- logo ---------- */
   /* ▼▼ ロゴ差し替え箇所：この .logo-mark(SVG) を <img src="logo.svg" class="logo-img"> に置換 ▼▼ */
   .logo-mark{width:26px;height:26px;flex:0 0 auto}
-  .logo-img{height:26px;width:auto;flex:0 0 auto}
+  .logo-img{height:30px;width:30px;flex:0 0 auto;border-radius:5px;object-fit:cover}
   .lm-o{fill:none;stroke:var(--ink);stroke-width:2.4}
   .lm-node{fill:var(--rose)}
   .lm-core{fill:var(--ink)}
@@ -218,14 +218,7 @@
 <header class="nav">
   <div class="wrap nav-inner">
     <a href="#top" class="brand">
-      <!-- ▼ ロゴ差し替え箇所（下のSVGを本番ロゴ画像に置換） ▼ -->
-      <svg class="logo-mark twinkle" viewBox="0 0 32 32" aria-hidden="true">
-        <circle class="lm-o" cx="16" cy="16" r="12"/>
-        <circle class="lm-core" cx="16" cy="16" r="3.4"/>
-        <circle class="lm-node" cx="16" cy="4" r="2.6"/>
-        <circle class="lm-node" cx="27" cy="22" r="2.6"/>
-        <circle class="lm-node" cx="5" cy="22" r="2.6"/>
-      </svg>
+      <img src="assets/logo-mark.png" class="logo-img" alt="オデンガ・テクノロジーズ ロゴ">
       オデンガ・テクノロジーズ<small>ODENGA&nbsp;TECH</small>
     </a>
     <nav class="nav-links">
@@ -467,13 +460,7 @@
 <footer>
   <div class="wrap foot-inner">
     <a href="#top" class="brand">
-      <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true">
-        <circle class="lm-o" cx="16" cy="16" r="12"/>
-        <circle class="lm-core" cx="16" cy="16" r="3.4"/>
-        <circle class="lm-node" cx="16" cy="4" r="2.6"/>
-        <circle class="lm-node" cx="27" cy="22" r="2.6"/>
-        <circle class="lm-node" cx="5" cy="22" r="2.6"/>
-      </svg>
+      <img src="assets/logo-mark.png" class="logo-img" alt="オデンガ・テクノロジーズ ロゴ">
       オデンガ・テクノロジーズ<small>ODENGA&nbsp;TECH</small>
     </a>
     <span class="foot-meta">© 2026 Odenga Technologies. All rights reserved.</span>
