@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>オデンガ・テクノロジーズ｜現場を知るITコンサルタント（IT/DX/AI × 業務プロセス）</title>
+<meta name="description" content="現場を知るITコンサルタント。IT・DX・生成AIと業務プロセスの両面から、中小企業の課題を捉え、設計から実装・内製化まで伴走します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FFFFFF;
+    --panel:#FAF7F8;        /* ほんのり温かい白 */
+    --ink:#17151A;
+    --muted:#6C6870;
+    --line:#ECE7EA;         /* 温かいヘアライン */
+    --rose:#E093A8;         /* ソフトな(ユニセックス)ダスティ・ローズ：装飾/線 */
+    --rose-deep:#B4566F;    /* テキスト用の濃いローズ（可読性確保） */
+    --rose-wash:#FBEDF1;    /* ごく淡いローズ面 */
+    --maxw:1160px;
+    --body-font:"Noto Sans JP",system-ui,sans-serif;
+    --disp-font:"Zen Kaku Gothic New","Noto Sans JP",system-ui,sans-serif;
+    --mono-font:"Roboto Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--body-font);
+    font-size:19px;line-height:1.85;color:var(--ink);background:var(--paper);
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  a{color:inherit;text-decoration:none}
+  .eyebrow{
+    font-family:var(--mono-font);font-size:13px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--rose-deep);font-weight:500;display:inline-flex;align-items:center;gap:.6em;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--rose-deep);display:inline-block}
+
+  /* ---------- logo ---------- */
+  /* ▼▼ ロゴ差し替え箇所：この .logo-mark(SVG) を <img src="logo.svg" class="logo-img"> に置換 ▼▼ */
+  .logo-mark{width:26px;height:26px;flex:0 0 auto}
+  .logo-img{height:26px;width:auto;flex:0 0 auto}
+  .lm-o{fill:none;stroke:var(--ink);stroke-width:2.4}
+  .lm-node{fill:var(--rose)}
+  .lm-core{fill:var(--ink)}
+
+  /* ---------- nav ---------- */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);
+    backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .brand{font-family:var(--disp-font);font-weight:900;font-size:19px;letter-spacing:.02em;display:flex;align-items:center;gap:.6em}
+  .brand small{font-family:var(--mono-font);font-weight:400;font-size:11px;letter-spacing:.16em;color:var(--muted)}
+  .nav-links{display:flex;gap:34px;align-items:center;font-size:15px;font-weight:500}
+  .nav-links a{color:var(--muted);transition:color .2s}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{font-family:var(--mono-font);font-size:13px;letter-spacing:.05em;color:var(--rose-deep);
+    border:1px solid var(--line);border-radius:7px;padding:9px 16px;transition:border-color .2s,background .2s}
+  .nav-cta:hover{border-color:var(--rose);background:var(--rose-wash)}
+  @media(max-width:760px){.nav-links a:not(.nav-cta){display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{padding:84px 0 94px;border-bottom:1px solid var(--line)}
+  .hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:56px;align-items:center}
+  .hero h1{font-family:var(--disp-font);font-weight:900;
+    font-size:clamp(2.7rem,7vw,5.4rem);line-height:1.12;letter-spacing:-.01em;margin:22px 0 26px}
+  .hero h1 .accent{color:var(--rose-deep)}
+  .lead{font-size:clamp(1.05rem,2.2vw,1.3rem);color:var(--muted);max-width:33em;line-height:1.9;font-weight:500}
+  .lead strong{color:var(--ink);font-weight:700}
+  .hero-cta{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap;align-items:center}
+  .btn{font-family:var(--disp-font);font-weight:700;font-size:16px;padding:15px 30px;border-radius:10px;
+    transition:transform .15s,box-shadow .2s,background .2s;display:inline-flex;align-items:center;gap:.5em}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px -12px rgba(23,21,26,.5)}
+  .btn-ghost{color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--ink)}
+  .cta-note{font-size:14px;color:var(--muted)}
+
+  .rise{opacity:0;transform:translateY(18px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+  .rise.d1{animation-delay:.05s}.rise.d2{animation-delay:.18s}.rise.d3{animation-delay:.32s}.rise.d4{animation-delay:.46s}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  /* ---------- signature flow diagram ---------- */
+  .flow{width:100%;height:auto}
+  .flow .node-box{fill:#fff;stroke:var(--line);stroke-width:1.5}
+  .flow .hub{fill:var(--ink)}
+  .flow .lbl{font-family:var(--mono-font);font-size:11px;fill:var(--muted);letter-spacing:.04em}
+  .flow .lbl-out{font-family:var(--mono-font);font-size:11px;fill:var(--rose-deep);letter-spacing:.04em;font-weight:500}
+  .flow .hub-lbl{font-family:var(--disp-font);font-size:13px;fill:#fff;font-weight:700}
+  .flow .conn{stroke:var(--line);stroke-width:1.5;fill:none}
+  .flow .conn-live{stroke:var(--rose);stroke-width:1.6;fill:none;stroke-dasharray:5 7;animation:dash 2.4s linear infinite}
+  @keyframes dash{to{stroke-dashoffset:-48}}
+  .flow-cap{font-family:var(--mono-font);font-size:12px;color:var(--muted);letter-spacing:.05em;margin-top:14px;text-align:center}
+  /* 時々きらめく（瞬き） */
+  .twinkle{animation:twinkle 6s ease-in-out infinite}
+  @keyframes twinkle{0%,86%,100%{opacity:1}93%{opacity:.18}}
+
+  /* ---------- section base ---------- */
+  section{padding:96px 0}
+  .sec-head{max-width:42em;margin-bottom:52px}
+  .sec-head h2{font-family:var(--disp-font);font-weight:900;font-size:clamp(2.1rem,4.6vw,3.2rem);line-height:1.22;margin:18px 0 16px;letter-spacing:-.01em}
+  .sec-head p{color:var(--muted);font-size:1.06rem}
+
+  /* ---------- services ---------- */
+  #service{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .svc{background:var(--paper);padding:38px 32px 42px;display:flex;flex-direction:column;gap:14px;transition:background .25s}
+  .svc:hover{background:#fff}
+  .svc:hover .svc-tag{color:var(--rose-deep)}
+  .svc-tag{font-family:var(--mono-font);font-size:12px;letter-spacing:.09em;color:var(--muted);transition:color .25s}
+  .svc h3{font-family:var(--disp-font);font-weight:700;font-size:1.42rem;line-height:1.4}
+  .svc p{font-size:.99rem;color:var(--muted);line-height:1.85}
+  @media(max-width:900px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.svc-grid{grid-template-columns:1fr}}
+
+  /* ---------- strengths ---------- */
+  .str-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+  .str{border-top:2px solid var(--ink);padding-top:26px}
+  .str.lead-str{border-top-color:var(--rose)}
+  .str .num{font-family:var(--mono-font);font-size:13px;color:var(--rose-deep);letter-spacing:.1em}
+  .str h3{font-family:var(--disp-font);font-weight:900;font-size:1.5rem;margin:14px 0 12px;line-height:1.38}
+  .str p{color:var(--muted);font-size:1rem}
+  @media(max-width:820px){.str-grid{grid-template-columns:1fr;gap:34px}}
+
+  /* ---------- domains ---------- */
+  #domain{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .dom-list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+  .dom-row{display:grid;grid-template-columns:60px 1fr 2fr;gap:24px;align-items:baseline;padding:26px 8px;border-bottom:1px solid var(--line)}
+  .dom-row .code{font-family:var(--mono-font);font-size:13px;color:var(--rose-deep)}
+  .dom-row h3{font-family:var(--disp-font);font-weight:700;font-size:1.28rem}
+  .dom-row p{color:var(--muted);font-size:1rem}
+  @media(max-width:720px){.dom-row{grid-template-columns:48px 1fr;gap:14px}.dom-row p{grid-column:1/-1;padding-left:62px}}
+
+  /* ---------- about ---------- */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+  .about-lead{font-family:var(--disp-font);font-weight:700;font-size:clamp(1.35rem,3vw,1.85rem);line-height:1.6;letter-spacing:-.005em;margin-bottom:26px}
+  .about-lead .accent{color:var(--rose-deep)}
+  .about-body p{color:var(--muted);font-size:1.02rem;margin-bottom:1.1em}
+  .rep{display:flex;gap:20px;align-items:center;margin-bottom:22px}
+  .rep-photo{width:88px;height:88px;border-radius:50%;background:var(--rose-wash);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;flex:0 0 auto;overflow:hidden}
+  .rep-photo span{font-family:var(--mono-font);font-size:10px;color:var(--rose-deep);text-align:center;line-height:1.4;padding:6px}
+  .rep-name{font-family:var(--disp-font);font-weight:700;font-size:1.15rem}
+  .rep-role{font-size:.92rem;color:var(--muted)}
+  .profile{border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .profile .prow{display:grid;grid-template-columns:120px 1fr;gap:8px;padding:17px 24px;border-bottom:1px solid var(--line);font-size:.98rem}
+  .profile .prow:last-child{border-bottom:none}
+  .profile .prow dt{font-family:var(--mono-font);font-size:12px;letter-spacing:.05em;color:var(--muted);padding-top:3px}
+  .profile .prow dd{font-weight:500}
+  .tbd{color:var(--rose-deep);font-family:var(--mono-font);font-size:.85em}
+  @media(max-width:820px){.about-grid{grid-template-columns:1fr;gap:40px}}
+
+  /* ---------- contact ---------- */
+  #contact{text-align:center}
+  .contact-inner{max-width:44em;margin:0 auto}
+  #contact h2{font-family:var(--disp-font);font-weight:900;font-size:clamp(2.2rem,5.5vw,3.6rem);line-height:1.22;margin:18px 0 22px}
+  #contact .sub{color:var(--muted);font-size:1.12rem;margin-bottom:34px}
+  .contact-mail{font-family:var(--disp-font);font-weight:900;font-size:clamp(1.4rem,4vw,2rem);color:var(--rose-deep);word-break:break-all}
+  .contact-cta{margin-top:30px}
+  .reassure{margin-top:16px;font-size:14px;color:var(--muted);font-family:var(--mono-font);letter-spacing:.03em}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line);padding:44px 0}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+  .foot-inner .brand small{color:var(--muted)}
+  .foot-meta{font-family:var(--mono-font);font-size:12px;color:var(--muted);letter-spacing:.05em}
+
+  /* ---------- notes ---------- */
+  .notes-meta{font-family:var(--mono-font);font-size:12px;color:var(--muted);letter-spacing:.05em;margin-top:8px}
+  .notes-meta b{color:var(--rose-deep);font-weight:500}
+  .notes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .note{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--paper);display:flex;flex-direction:column;transition:transform .15s,box-shadow .2s}
+  .note:hover{transform:translateY(-3px);box-shadow:0 16px 32px -22px rgba(23,21,26,.4)}
+  .note-art{height:118px;background:var(--rose-wash);border-bottom:1px solid var(--line)}
+  .note-art svg{width:100%;height:100%;display:block}
+  .note-body{padding:22px 22px 26px;display:flex;flex-direction:column;gap:9px;flex:1}
+  .note-meta{font-family:var(--mono-font);font-size:12px;letter-spacing:.04em;color:var(--rose-deep);display:flex;gap:12px;align-items:center}
+  .note-meta .cat{color:var(--muted)}
+  .note h3{font-family:var(--disp-font);font-weight:700;font-size:1.2rem;line-height:1.45}
+  .note p{font-size:.95rem;color:var(--muted);line-height:1.8}
+  .notes-empty{color:var(--muted);font-size:1rem;padding:18px 0}
+  @media(max-width:900px){.notes-grid{grid-template-columns:1fr}}
+
+  /* ---------- prompts ---------- */
+  #prompts{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .prompt-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .pcard{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;display:flex;flex-direction:column;gap:11px}
+  .pcard .ptag{font-family:var(--mono-font);font-size:12px;letter-spacing:.08em;color:var(--rose-deep)}
+  .pcard h3{font-family:var(--disp-font);font-weight:700;font-size:1.22rem;line-height:1.42}
+  .pcard .pdesc{font-size:.95rem;color:var(--muted);line-height:1.75}
+  .pbox{position:relative;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--rose);border-radius:9px;margin-top:4px}
+  .pbox pre{font-family:var(--mono-font);font-size:12.5px;line-height:1.75;color:var(--ink);white-space:pre-wrap;word-break:break-word;margin:0;padding:38px 16px 16px;max-height:230px;overflow:auto}
+  .copy-btn{position:absolute;top:9px;right:9px;font-family:var(--mono-font);font-size:12px;letter-spacing:.03em;color:var(--rose-deep);background:var(--paper);border:1px solid var(--line);border-radius:7px;padding:6px 13px;cursor:pointer;transition:border-color .2s,background .2s,color .2s}
+  .copy-btn:hover{border-color:var(--rose);background:var(--rose-wash)}
+  .copy-btn.copied{color:#fff;background:var(--rose-deep);border-color:var(--rose-deep)}
+  @media(max-width:820px){.prompt-grid{grid-template-columns:1fr}}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:920px){
+    .hero-grid{grid-template-columns:1fr;gap:44px}
+    .hero{padding:56px 0 68px}
+    section{padding:72px 0}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important}
+    .rise,.reveal{opacity:1;transform:none;transition:none}
+    .flow .conn-live{stroke-dasharray:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand">
+      <!-- ▼ ロゴ差し替え箇所（下のSVGを本番ロゴ画像に置換） ▼ -->
+      <svg class="logo-mark twinkle" viewBox="0 0 32 32" aria-hidden="true">
+        <circle class="lm-o" cx="16" cy="16" r="12"/>
+        <circle class="lm-core" cx="16" cy="16" r="3.4"/>
+        <circle class="lm-node" cx="16" cy="4" r="2.6"/>
+        <circle class="lm-node" cx="27" cy="22" r="2.6"/>
+        <circle class="lm-node" cx="5" cy="22" r="2.6"/>
+      </svg>
+      オデンガ・テクノロジーズ<small>ODENGA&nbsp;TECH</small>
+    </a>
+    <nav class="nav-links">
+      <a href="#service">サービス</a>
+      <a href="#strength">強み</a>
+      <a href="#domain">対応領域</a>
+      <a href="#notes">ノート</a>
+      <a href="#about">代表・概要</a>
+      <a href="#contact" class="nav-cta">相談する</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow rise d1">Field-driven IT × Process</span>
+      <h1 class="rise d2">ITも、業務も、<br>“<span class="accent">わかる人</span>”がつくる。</h1>
+      <p class="lead rise d3">現場を知るITコンサルタントとして、<strong>IT・DX・生成AI</strong>と<strong>業務プロセス</strong>の両面から課題を捉える。<br>だから、片方だけの専門家では見えない解像度で、本当に回る仕組みを設計から実装・内製化まで。</p>
+      <div class="hero-cta rise d4">
+        <a href="#contact" class="btn btn-primary">無料で相談する →</a>
+        <a href="#service" class="btn btn-ghost">できることを見る</a>
+      </div>
+    </div>
+
+    <!-- signature: system flow diagram -->
+    <div class="hero-sig rise d4" aria-hidden="true">
+      <svg class="flow" viewBox="0 0 360 300" role="img" aria-label="散らばった業務を、動く仕組みへ結線する概念図">
+        <path class="conn" d="M108 46 C160 46 150 150 208 150"/>
+        <path class="conn-live" d="M108 46 C160 46 150 150 208 150"/>
+        <path class="conn" d="M108 110 C160 110 158 150 208 150"/>
+        <path class="conn-live" d="M108 110 C160 110 158 150 208 150" style="animation-delay:.5s"/>
+        <path class="conn" d="M108 174 C160 174 158 150 208 150"/>
+        <path class="conn-live" d="M108 174 C160 174 158 150 208 150" style="animation-delay:1s"/>
+        <path class="conn" d="M108 238 C160 238 150 150 208 150"/>
+        <path class="conn-live" d="M108 238 C160 238 150 150 208 150" style="animation-delay:1.5s"/>
+        <path class="conn-live" d="M272 150 C300 150 300 78 330 78" style="animation-delay:.3s"/>
+        <path class="conn-live" d="M272 150 C300 150 300 150 330 150" style="animation-delay:.9s"/>
+        <path class="conn-live" d="M272 150 C300 150 300 222 330 222" style="animation-delay:1.4s"/>
+
+        <g><rect class="node-box" x="8" y="32" width="100" height="28" rx="6"/><text class="lbl" x="20" y="50">Excel / 属人化</text></g>
+        <g><rect class="node-box" x="8" y="96" width="100" height="28" rx="6"/><text class="lbl" x="20" y="114">メール / 紙</text></g>
+        <g><rect class="node-box" x="8" y="160" width="100" height="28" rx="6"/><text class="lbl" x="20" y="178">分断システム</text></g>
+        <g><rect class="node-box" x="8" y="224" width="100" height="28" rx="6"/><text class="lbl" x="20" y="242">手作業 / 転記</text></g>
+
+        <rect class="hub" x="208" y="128" width="64" height="44" rx="10"/>
+        <text class="hub-lbl" x="240" y="154" text-anchor="middle">Odenga</text>
+
+        <g class="twinkle"><rect class="node-box" x="330" y="64" width="24" height="28" rx="6"/><text class="lbl-out" x="342" y="82" text-anchor="middle">A</text></g>
+        <g class="twinkle" style="animation-delay:-2.2s"><rect class="node-box" x="330" y="136" width="24" height="28" rx="6"/><text class="lbl-out" x="342" y="154" text-anchor="middle">B</text></g>
+        <g class="twinkle" style="animation-delay:-4.1s"><rect class="node-box" x="330" y="208" width="24" height="28" rx="6"/><text class="lbl-out" x="342" y="226" text-anchor="middle">C</text></g>
+      </svg>
+      <div class="flow-cap">散らばった業務 → 動く仕組み（自動化・アプリ・可視化）</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="service">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">SERVICE</span>
+      <h2>相談から実装まで、<br>IT と 業務の両面で。</h2>
+      <p>「何をすべきか」の見極めから、実際に動くものづくりまで。ひとりの窓口でまとめて任せられます。</p>
+    </div>
+    <div class="svc-grid reveal">
+      <article class="svc">
+        <span class="svc-tag">IT / DX / AI × PROCESS</span>
+        <h3>ITコンサルティング</h3>
+        <p>IT・DX・生成AIと業務プロセスの両面から、経営課題を整理。「そもそも何から着手すべきか」を現場と一緒に描き、実行計画に落とし込みます。</p>
+      </article>
+      <article class="svc">
+        <span class="svc-tag">MS365 / POWER PLATFORM</span>
+        <h3>Microsoft 365 導入・内製化</h3>
+        <p>SharePoint・Power Apps・Power Automate・Power BI で、社内ポータルや業務アプリ、ワークフローを構築。運用を社内で回せる状態まで伴走します。</p>
+      </article>
+      <article class="svc">
+        <span class="svc-tag">GENERATIVE AI / AGENT</span>
+        <h3>生成AI・AIエージェント構築</h3>
+        <p>ClaudeなどのAIを組み込み、メール処理・書類作成・問い合わせ対応といった定型業務を自動化。安全に運用できる設計から実装まで。</p>
+      </article>
+      <article class="svc">
+        <span class="svc-tag">BPR / PROCESS</span>
+        <h3>業務プロセス改革</h3>
+        <p>業務フローの可視化・標準化から着手。ムダと属人化を洗い出し、テクノロジーを載せる“前”の土台づくりを丁寧に行います。</p>
+      </article>
+      <article class="svc">
+        <span class="svc-tag">SUBSIDY / 補助金</span>
+        <h3>補助金活用支援</h3>
+        <p>中小企業診断士として、事業計画の設計から申請書類、採択後の交付申請・実行まで一貫サポート。DX投資と補助金を接続します。</p>
+      </article>
+      <article class="svc">
+        <span class="svc-tag">ERP / SECURITY</span>
+        <h3>基幹システム・ERP選定支援</h3>
+        <p>パッケージ比較・移行計画から、ゼロトラスト（ZTNA）を含むセキュリティ基盤の検討まで。次期基幹システムの意思決定を支えます。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STRENGTHS ============ -->
+<section id="strength">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">WHY ODENGA</span>
+      <h2>“技術も、業務も、わかる”こと。</h2>
+      <p>ITだけの専門家でも、業務改善だけの専門家でもない。その両方を、現場の解像度で。</p>
+    </div>
+    <div class="str-grid">
+      <div class="str lead-str reveal">
+        <span class="num">01 / 両輪</span>
+        <h3>技術と業務、<br>両方がわかる</h3>
+        <p>IT・DX・生成AIの実装力と、実際の業務プロセスへの理解。両方を1人が持つから、「絵に描いた餅」でも「現場を無視した導入」でもない、地に足のついた解を出せます。</p>
+      </div>
+      <div class="str reveal">
+        <span class="num">02 / 現場起点</span>
+        <h3>理屈でなく、<br>現場が回る前提で</h3>
+        <p>現場で手を動かしてきた経験がベース。実際に使われ、運用が続く前提で設計する。だから導入したのに使われない、が起きにくい。</p>
+      </div>
+      <div class="str reveal">
+        <span class="num">03 / つくって残す</span>
+        <h3>提案で終わらず、<br>社内に残す</h3>
+        <p>納品して終わりにしません。ドキュメント整備と伴走で、御社の担当者が自分たちで運用・改善できる状態まで。中小企業診断士の視点で経営にも接続します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DOMAINS ============ -->
+<section id="domain">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">DOMAINS</span>
+      <h2>これまで携わった領域。</h2>
+      <p>製造業から商社、人材領域まで。業種ごとの商習慣を踏まえた支援を行っています。<span class="tbd">※ 守秘のため業種カテゴリで記載</span></p>
+    </div>
+    <div class="dom-list reveal">
+      <div class="dom-row">
+        <span class="code">D-01</span>
+        <h3>製造業</h3>
+        <p>熱処理・表面処理・化学などの中小メーカー。業務フロー可視化、社内ポータル、基幹システム刷新の検討を支援。</p>
+      </div>
+      <div class="dom-row">
+        <span class="code">D-02</span>
+        <h3>商社・金属流通</h3>
+        <p>ERP／コンポーザブル基盤の移行計画、輸出業務の自動化、サプライチェーン効率化の企画を支援。</p>
+      </div>
+      <div class="dom-row">
+        <span class="code">D-03</span>
+        <h3>HR・人材テック</h3>
+        <p>海外連携を含むHRプラットフォーム開発のPdM支援、ベンダー比較、補助金申請の伴走。</p>
+      </div>
+      <div class="dom-row">
+        <span class="code">D-04</span>
+        <h3>AIシステム / 受入支援</h3>
+        <p>AI受発注・業務システムの要件定義、受入テスト設計、運用・保守設計のドキュメント整備。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">NOTES</span>
+      <h2>現場からのノート。</h2>
+      <p>DX・生成AI・補助金の“いま”を、実務で得た一次情報として不定期に更新しています。</p>
+      <div class="notes-meta">最終更新：<b id="notes-updated">—</b></div>
+    </div>
+    <div class="notes-grid reveal" id="notes-grid"></div>
+  </div>
+</section>
+
+<!-- ============ PROMPTS ============ -->
+<section id="prompts">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">PROMPTS</span>
+      <h2>使えるプロンプト。</h2>
+      <p>実務で効いた生成AIのプロンプトを、そのまま使える形で公開しています。コピーしてお試しください。</p>
+    </div>
+    <div class="prompt-grid reveal" id="prompt-grid"></div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">ABOUT</span>
+      <h2>オデンガ・テクノロジーズ</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-body reveal">
+        <p class="about-lead">中小企業のいちばん近くで、<span class="accent">技術と業務のあいだ</span>をつなぐ。</p>
+        <p>大企業向けの重厚なDXではなく、限られた人と予算のなかで「まず何から手をつけるか」を一緒に考え、実際に動く仕組みまで作り切ることを大切にしています。</p>
+        <div class="rep">
+          <!-- ▼ 代表写真の差し替え箇所（下の span を <img> に置換） ▼ -->
+          <div class="rep-photo"><span>代表写真<br>〔要差替〕</span></div>
+          <div>
+            <div class="rep-name">佐々木 <span class="tbd">〔氏名〕</span></div>
+            <div class="rep-role">代表 ／ 中小企業診断士 ・ ITコンサルタント</div>
+          </div>
+        </div>
+        <p>現場経験を軸にしたITコンサルティングを主軸に、人事・労務を専門とするパートナーと連携。システム面と組織・制度面の両方から、中小企業の変革を支えます。</p>
+      </div>
+      <div class="reveal">
+        <dl class="profile">
+          <div class="prow"><dt>屋号</dt><dd>オデンガ・テクノロジーズ<br><span class="tbd">〔正式表記 要確認〕</span></dd></div>
+          <div class="prow"><dt>代表</dt><dd>佐々木<span class="tbd">〔氏名 要記入〕</span> ／ 中小企業診断士</dd></div>
+          <div class="prow"><dt>体制</dt><dd>代表 ＋ パートナー1名（人事・労務）</dd></div>
+          <div class="prow"><dt>事業内容</dt><dd>ITコンサルティング／DX・システム構築／補助金活用支援</dd></div>
+          <div class="prow"><dt>所在地</dt><dd class="tbd">〔要記入〕</dd></div>
+          <div class="prow"><dt>設立</dt><dd class="tbd">〔要記入〕</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="wrap contact-inner reveal">
+    <span class="eyebrow" style="justify-content:center">CONTACT</span>
+    <h2>「これ、仕組みにできますか？」<br>から始めましょう。</h2>
+    <p class="sub">DXの入口相談、補助金の活用、基幹システムの見直しまで。<br>まずは現状を聞かせてください。</p>
+    <a class="contact-mail" href="mailto:hello@example.com">hello@odenga.example</a>
+    <div class="contact-cta">
+      <a href="mailto:hello@example.com" class="btn btn-primary">メールで相談する →</a>
+    </div>
+    <p class="reassure">初回相談は無料 ／ 勧誘なし ／ オンライン対応可</p>
+    <p class="tbd" style="margin-top:10px">〔メールアドレス・問い合わせフォームURL 要記入〕</p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap foot-inner">
+    <a href="#top" class="brand">
+      <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <circle class="lm-o" cx="16" cy="16" r="12"/>
+        <circle class="lm-core" cx="16" cy="16" r="3.4"/>
+        <circle class="lm-node" cx="16" cy="4" r="2.6"/>
+        <circle class="lm-node" cx="27" cy="22" r="2.6"/>
+        <circle class="lm-node" cx="5" cy="22" r="2.6"/>
+      </svg>
+      オデンガ・テクノロジーズ<small>ODENGA&nbsp;TECH</small>
+    </a>
+    <span class="foot-meta">© 2026 Odenga Technologies. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var els = document.querySelectorAll('.reveal');
+    if(mq.matches || !('IntersectionObserver' in window)){
+      els.forEach(function(e){e.classList.add('in')});
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+      });
+    },{threshold:.12});
+    els.forEach(function(e){io.observe(e)});
+  })();
+</script>
+<script>
+/* NOTES: posts.json を読み最新3件を描画。読めない場合(ローカル等)は SEED を表示。 */
+(function(){
+  var SEED = {
+    lastUpdated: "2026-07-17",
+    posts: [
+      {type:"note", date:"2026-07-15", category:"生成AI", art:0,
+       title:"“全自動ブログ”を勧めない理由と、代わりにやったこと",
+       excerpt:"薄い自動記事は検索評価も信頼も損ねかねません。一次情報を核にした半自動運用の設計を、実案件の学びから。"},
+      {type:"note", date:"2026-07-08", category:"補助金", art:1,
+       title:"補助金は「取る」より「使い切る」で差がつく",
+       excerpt:"採択後の交付申請・実行フェーズでつまずく中小企業は多い。DX投資と補助金を接続する実務のポイントを整理。"},
+      {type:"note", date:"2026-07-01", category:"Power Platform", art:2,
+       title:"Power Automateの前に、まず業務フローを描く",
+       excerpt:"ツールを載せる前の可視化と標準化が効きます。現場が回る自動化にするための順番を、失敗例も交えて。"},
+      {type:"prompt", date:"2026-07-14", category:"業務プロセス",
+       title:"「口頭の業務説明」を業務フロー草案に変えるプロンプト",
+       excerpt:"現場ヒアリングのメモを、部門レーン付きの業務フロー草案に整形。抜け漏れの確認質問まで出させます。",
+       prompt:"あなたは業務プロセス設計の専門家です。以下の業務説明を読み、\n1) 登場する部門・担当を「レーン」として抽出\n2) 開始から終了までの手順を時系列のステップに分解\n3) 各ステップの入力・出力・使用システムを明記\n4) 説明から判断できない箇所は「確認質問」としてリスト化\nの4点を表形式で整理してください。推測で埋めず、不明点は必ず質問にすること。\n\n【業務説明】\n（ここに現場ヒアリングのメモを貼る）"},
+      {type:"prompt", date:"2026-07-11", category:"生成AI",
+       title:"議事録から「担当・期限つきタスク」を抜き出すプロンプト",
+       excerpt:"打ち合わせメモを貼るだけで、担当者・期限・優先度つきのタスク表に。曖昧な宿題も洗い出します。",
+       prompt:"次の議事録から、実行すべきアクションアイテムだけを抽出し、表にしてください。\n列は「タスク / 担当 / 期限 / 優先度(高中低) / 補足」。\n- 担当や期限が本文で不明な場合は「要確認」と記載する（勝手に決めない）\n- 決定事項と、まだ宿題の項目を分けて示す\n\n【議事録】\n（ここに打ち合わせメモを貼る）"}
+    ]
+  };
+  function motif(i){
+    i = (i||0) % 4;
+    var R = "#E093A8", L = "#ECE7EA", I = "#17151A";
+    if(i===0){ /* node network */
+      return '<svg viewBox="0 0 300 118" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">'
+        +'<path d="M40 30 L150 59 L110 92 M150 59 L235 34 L262 82 M150 59 L70 88" stroke="'+L+'" stroke-width="1.4" fill="none"/>'
+        +'<circle cx="40" cy="30" r="4" fill="'+R+'"/><circle cx="235" cy="34" r="4" fill="'+R+'"/>'
+        +'<circle cx="110" cy="92" r="4" fill="'+R+'"/><circle cx="70" cy="88" r="4" fill="'+R+'"/>'
+        +'<circle cx="262" cy="82" r="4" fill="'+R+'"/><circle cx="150" cy="59" r="6.5" fill="'+I+'"/></svg>';
+    } else if(i===1){ /* concentric arcs */
+      return '<svg viewBox="0 0 300 118" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">'
+        +'<g fill="none" stroke-width="1.6"><circle cx="222" cy="59" r="18" stroke="'+I+'"/>'
+        +'<circle cx="222" cy="59" r="34" stroke="'+R+'"/><circle cx="222" cy="59" r="50" stroke="'+L+'"/>'
+        +'<circle cx="222" cy="59" r="66" stroke="'+L+'"/></g><circle cx="222" cy="59" r="5" fill="'+R+'"/></svg>';
+    } else if(i===2){ /* dotted grid */
+      var s=''; for(var y=0;y<4;y++){for(var x=0;x<10;x++){ var cx=26+x*28, cy=22+y*26; var on=((x+y)%5===0); s+='<circle cx="'+cx+'" cy="'+cy+'" r="'+(on?3.4:2)+'" fill="'+(on?R:L)+'"/>'; }}
+      return '<svg viewBox="0 0 300 118" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">'+s+'</svg>';
+    }
+    /* wave lines */
+    return '<svg viewBox="0 0 300 118" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">'
+      +'<path d="M0 78 C60 40 120 40 150 62 C180 84 240 84 300 46" stroke="'+R+'" stroke-width="1.8" fill="none"/>'
+      +'<path d="M0 92 C60 56 120 56 150 76 C180 96 240 96 300 62" stroke="'+L+'" stroke-width="1.6" fill="none"/>'
+      +'<path d="M0 64 C60 28 120 28 150 50 C180 72 240 72 300 32" stroke="'+L+'" stroke-width="1.6" fill="none"/></svg>';
+  }
+  function fmt(d){ if(!d) return "—"; var p=String(d).slice(0,10).split("-"); return p.length===3 ? p[0]+"."+p[1]+"."+p[2] : d; }
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+  function render(data){
+    var all=((data&&data.posts)||[]);
+    var notes=all.filter(function(p){return p.type!=="prompt";});
+    var prompts=all.filter(function(p){return p.type==="prompt";});
+    renderNotes(notes, data&&data.lastUpdated);
+    renderPrompts(prompts);
+  }
+  function renderNotes(list, updated){
+    var grid=document.getElementById("notes-grid"), up=document.getElementById("notes-updated");
+    if(!grid) return;
+    var posts=list.slice().sort(function(a,b){return a.date<b.date?1:-1;}).slice(0,3);
+    up.textContent = updated ? fmt(updated) : (posts[0]?fmt(posts[0].date):"—");
+    if(!posts.length){ grid.innerHTML='<div class="notes-empty">ノートは準備中です。</div>'; return; }
+    grid.innerHTML = posts.map(function(p){
+      return '<article class="note"><div class="note-art">'+motif(p.art)+'</div>'
+        +'<div class="note-body"><div class="note-meta">'+fmt(p.date)+' <span class="cat">'+esc(p.category)+'</span></div>'
+        +'<h3>'+esc(p.title)+'</h3><p>'+esc(p.excerpt)+'</p></div></article>';
+    }).join("");
+  }
+  function renderPrompts(list){
+    var grid=document.getElementById("prompt-grid"); if(!grid) return;
+    var posts=list.slice().sort(function(a,b){return a.date<b.date?1:-1;}).slice(0,4);
+    if(!posts.length){ grid.innerHTML='<div class="notes-empty">プロンプトは準備中です。</div>'; return; }
+    grid.innerHTML = posts.map(function(p){
+      return '<article class="pcard"><div class="ptag">PROMPT ・ '+esc(p.category)+'</div>'
+        +'<h3>'+esc(p.title)+'</h3><p class="pdesc">'+esc(p.excerpt)+'</p>'
+        +'<div class="pbox"><button class="copy-btn" type="button">コピー</button><pre>'+esc(p.prompt||"")+'</pre></div>'
+        +'</article>';
+    }).join("");
+  }
+  function fallbackCopy(text){ try{ var ta=document.createElement("textarea"); ta.value=text; ta.style.position="fixed"; ta.style.opacity="0"; document.body.appendChild(ta); ta.focus(); ta.select(); document.execCommand("copy"); document.body.removeChild(ta);}catch(e){} }
+  document.addEventListener("click", function(e){
+    var btn = (e.target && e.target.closest) ? e.target.closest(".copy-btn") : null;
+    if(!btn) return;
+    var pre = btn.parentNode.querySelector("pre"); if(!pre) return;
+    var text = pre.textContent;
+    var done = function(){ btn.classList.add("copied"); btn.textContent="コピーしました"; setTimeout(function(){ btn.classList.remove("copied"); btn.textContent="コピー"; },1600); };
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(done, function(){ fallbackCopy(text); done(); }); }
+    else { fallbackCopy(text); done(); }
+  });
+  fetch("posts.json",{cache:"no-store"})
+    .then(function(r){ if(!r.ok) throw 0; return r.json(); })
+    .then(render)
+    .catch(function(){ render(SEED); });
+})();
+</script>
+</body>
+</html>
