@@ -195,6 +195,32 @@
   .dom-row p{color:var(--muted);font-size:1rem}
   @media(max-width:720px){.dom-row{grid-template-columns:48px 1fr;gap:14px}.dom-row p{grid-column:1/-1;padding-left:62px}}
 
+  /* ---------- trends ---------- */
+  #trends{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .trend-tabs{display:flex;gap:0;margin-bottom:32px;border-bottom:1px solid var(--line)}
+  .trend-tab{font-family:var(--mono-font);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    padding:10px 24px;cursor:pointer;border:none;background:none;color:var(--muted);border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+  .trend-tab.active{color:var(--rose-deep);border-bottom-color:var(--rose-deep)}
+  .trend-panel{display:none}.trend-panel.active{display:block}
+  .trend-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+  .trend-card{border:1px solid var(--line);border-radius:6px;padding:16px 18px;background:var(--paper);position:relative}
+  .trend-card.high{border-left:3px solid var(--rose-deep)}
+  .trend-card.mid {border-left:3px solid var(--rose)}
+  .trend-card.low {border-left:3px solid var(--line)}
+  .trend-kw{font-family:var(--disp-font);font-weight:700;font-size:1.05rem;margin-bottom:6px;color:var(--ink)}
+  .trend-badge{font-family:var(--mono-font);font-size:10px;letter-spacing:.1em;padding:2px 8px;border-radius:20px;margin-left:8px;vertical-align:middle}
+  .trend-badge.high{background:var(--rose-wash);color:var(--rose-deep)}
+  .trend-badge.mid {background:#F5F5F5;color:var(--muted)}
+  .trend-badge.low {background:#F5F5F5;color:var(--muted)}
+  .trend-comment{font-size:.9rem;color:var(--muted);margin-bottom:0}
+  .trend-count{font-family:var(--mono-font);font-size:11px;color:var(--muted);margin-top:8px}
+  .trend-updated{font-family:var(--mono-font);font-size:12px;color:var(--muted);margin-bottom:20px}
+  .trend-thermometer{display:flex;gap:8px;margin-bottom:24px;align-items:center}
+  .thermo-bar{height:8px;border-radius:4px;background:var(--line);flex:1;overflow:hidden}
+  .thermo-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--rose) 0%,var(--rose-deep) 100%);transition:width .6s ease}
+  .thermo-label{font-family:var(--mono-font);font-size:11px;color:var(--muted);white-space:nowrap}
+  @media(max-width:600px){.trend-grid{grid-template-columns:1fr}}
+
   /* ---------- about ---------- */
   .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
   .about-lead{font-family:var(--disp-font);font-weight:700;font-size:clamp(1.35rem,3vw,1.85rem);line-height:1.6;letter-spacing:-.005em;margin-bottom:26px}
@@ -288,6 +314,7 @@
       <a href="#service">サービス</a>
       <a href="#strength">強み</a>
       <a href="#domain">対応領域</a>
+      <a href="#trends">トレンド</a>
       <a href="#notes">ノート</a>
       <a href="#about">代表・概要</a>
       <a href="#contact" class="nav-cta">相談する</a>
@@ -444,6 +471,31 @@
   </div>
 </section>
 
+<!-- ============ TRENDS ============ -->
+<section id="trends">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">ODENGA TREND WATCH</span>
+      <h2>中小企業の"いま"を読む。</h2>
+      <p>ITニュースRSSをAIが毎朝収集・分析。中小企業への関連度でフィルタリングして表示しています。</p>
+      <div class="trend-updated">最終更新：<span id="trend-updated-at">—</span></div>
+    </div>
+    <div class="reveal">
+      <div class="trend-tabs">
+        <button class="trend-tab active" onclick="switchTrend('daily',this)">DAILY</button>
+        <button class="trend-tab" onclick="switchTrend('weekly',this)">WEEKLY</button>
+      </div>
+      <div class="trend-thermometer" id="trend-thermo" aria-hidden="true">
+        <span class="thermo-label">注目度</span>
+        <div class="thermo-bar"><div class="thermo-fill" id="thermo-fill" style="width:0%"></div></div>
+        <span class="thermo-label" id="thermo-pct">—</span>
+      </div>
+      <div id="trend-panel-daily"  class="trend-panel active"><div class="trend-grid" id="trend-grid-daily"></div></div>
+      <div id="trend-panel-weekly" class="trend-panel">        <div class="trend-grid" id="trend-grid-weekly"></div></div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ NOTES ============ -->
 <section id="notes">
   <div class="wrap">
@@ -556,6 +608,57 @@
 })();
 </script>
 <script>
+/* TRENDS: trends.json を読みウィジェットを描画 */
+(function(){
+  function relLabel(r){
+    if(r==='高') return '<span class="trend-badge high">中小企業に必須</span>';
+    if(r==='中') return '<span class="trend-badge mid">様子見OK</span>';
+    return '<span class="trend-badge low">中小には早い</span>';
+  }
+  function renderCards(items, gridId){
+    var g = document.getElementById(gridId);
+    if(!g) return;
+    if(!items || items.length===0){ g.innerHTML='<p style="color:var(--muted)">データ準備中です。</p>'; return; }
+    var maxCount = Math.max.apply(null, items.map(function(i){return i.count||0;}));
+    g.innerHTML = items.map(function(item){
+      var cls = item.relevance==='高'?'high': item.relevance==='中'?'mid':'low';
+      var pct = maxCount>0 ? Math.round((item.count/maxCount)*100) : 0;
+      return '<div class="trend-card '+cls+'">'
+        +'<div class="trend-kw">'+item.keyword+relLabel(item.relevance)+'</div>'
+        +'<p class="trend-comment">'+( item.comment||'')+'</p>'
+        +'<div class="trend-count">記事内出現：'+item.count+'件</div>'
+        +'</div>';
+    }).join('');
+  }
+  function updateThermo(items){
+    var highCount = (items||[]).filter(function(i){return i.relevance==='高';}).length;
+    var pct = items&&items.length ? Math.round(highCount/items.length*100) : 0;
+    var fill = document.getElementById('thermo-fill');
+    var label = document.getElementById('thermo-pct');
+    if(fill) fill.style.width = pct+'%';
+    if(label) label.textContent = '必須キーワード '+pct+'%';
+  }
+  var _data = null;
+  window.switchTrend = function(mode, btn){
+    document.querySelectorAll('.trend-tab').forEach(function(t){t.classList.remove('active');});
+    document.querySelectorAll('.trend-panel').forEach(function(p){p.classList.remove('active');});
+    btn.classList.add('active');
+    document.getElementById('trend-panel-'+mode).classList.add('active');
+    if(_data) updateThermo(mode==='daily'?_data.daily:_data.weekly);
+  };
+  fetch('trends.json').then(function(r){return r.json();}).then(function(d){
+    _data = d;
+    var el = document.getElementById('trend-updated-at');
+    if(el) el.textContent = d.updatedAt || '—';
+    renderCards(d.daily,  'trend-grid-daily');
+    renderCards(d.weekly, 'trend-grid-weekly');
+    updateThermo(d.daily);
+  }).catch(function(){
+    var g = document.getElementById('trend-grid-daily');
+    if(g) g.innerHTML='<p style="color:var(--muted)">データ準備中です。GAS の collectTrends() を実行すると表示されます。</p>';
+  });
+})();
+
 /* NOTES: posts.json を読み最新3件を描画。読めない場合(ローカル等)は SEED を表示。 */
 (function(){
   var SEED = {
