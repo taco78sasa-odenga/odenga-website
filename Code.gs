@@ -263,14 +263,56 @@ function commitToGitHub_(contentStr) {
 
 /* ============================================================ トリガー（任意） */
 function installTriggers() {
+  var MANAGED = ['generateDraft', 'generatePromptDraft', 'publishApproved', 'weeklyReminder', 'checkSiteHealth'];
   ScriptApp.getProjectTriggers().forEach(function (t) {
-    var fn = t.getHandlerFunction();
-    if (fn === 'generateDraft' || fn === 'generatePromptDraft' || fn === 'publishApproved') ScriptApp.deleteTrigger(t);
+    if (MANAGED.indexOf(t.getHandlerFunction()) !== -1) ScriptApp.deleteTrigger(t);
   });
-  ScriptApp.newTrigger('generateDraft').timeBased().onWeekDay(ScriptApp.WeekDay.MONDAY).atHour(8).create();     // ノート 週1
-  ScriptApp.newTrigger('generatePromptDraft').timeBased().onWeekDay(ScriptApp.WeekDay.THURSDAY).atHour(8).create(); // プロンプト 週1（inbox空ならno-op）
-  ScriptApp.newTrigger('publishApproved').timeBased().everyDays(1).atHour(9).create();                          // 公開 日次
-  Logger.log('トリガー設定完了（ノート=月 / プロンプト=木 / 公開=日次）。');
+  ScriptApp.newTrigger('generateDraft').timeBased().onWeekDay(ScriptApp.WeekDay.MONDAY).atHour(8).create();
+  ScriptApp.newTrigger('generatePromptDraft').timeBased().onWeekDay(ScriptApp.WeekDay.THURSDAY).atHour(8).create();
+  ScriptApp.newTrigger('publishApproved').timeBased().everyDays(1).atHour(9).create();
+  ScriptApp.newTrigger('weeklyReminder').timeBased().onWeekDay(ScriptApp.WeekDay.MONDAY).atHour(21).create();
+  ScriptApp.newTrigger('checkSiteHealth').timeBased().everyDays(1).atHour(21).create();
+  Logger.log('トリガー設定完了（ノート=月朝 / プロンプト=木朝 / 公開=日次朝 / リマインド=月夜 / 監視=日次夜）。');
+}
+
+/* ============================================================ 週次リマインド */
+function weeklyReminder() {
+  var TO  = 'sasaki78@odenga.com';
+  var CC  = 'sasaki78@odenga.onmicrosoft.com';
+  var sh  = sheet_(SHEET_POSTS);
+  var data = sh.getDataRange().getValues();
+  var statusIdx = POSTS_HEADER.indexOf('status');
+  var titleIdx  = POSTS_HEADER.indexOf('title');
+  var drafts = [];
+  for (var i = 1; i < data.length; i++) {
+    if (data[i][statusIdx] === 'draft') drafts.push('・' + data[i][titleIdx]);
+  }
+  var body = drafts.length > 0
+    ? '承認待ちの下書きが ' + drafts.length + ' 件あります。\n\n' + drafts.join('\n') + '\n\nスプレッドシートで status を approved に変更してください。'
+    : '現在、承認待ちの下書きはありません。\n\n今週のネタを topics シートに追加しておくと、次回の generateDraft() で下書きが生成されます。';
+  GmailApp.sendEmail(TO, '【オデンガHP】週次コンテンツリマインド', body, { cc: CC });
+  Logger.log('週次リマインドメール送信完了。');
+}
+
+/* ============================================================ サイト死活監視 */
+function checkSiteHealth() {
+  var TO   = 'sasaki78@odenga.com';
+  var CC   = 'sasaki78@odenga.onmicrosoft.com';
+  var URL  = 'https://odenga.com';
+  var code, err;
+  try {
+    var res = UrlFetchApp.fetch(URL, { muteHttpExceptions: true });
+    code = res.getResponseCode();
+  } catch (e) {
+    err = e.toString();
+  }
+  if (err || code !== 200) {
+    var msg = err ? 'アクセスエラー: ' + err : 'HTTPステータス ' + code + ' が返されました。';
+    GmailApp.sendEmail(TO, '【緊急】odenga.com が応答していません', msg + '\n\nURL: ' + URL, { cc: CC });
+    Logger.log('異常検知 → メール送信: ' + msg);
+  } else {
+    Logger.log('サイト正常: ' + URL + ' (' + code + ')');
+  }
 }
 
 /* ============================================================ テスト用 */
