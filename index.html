@@ -446,9 +446,9 @@
     <span class="eyebrow" style="justify-content:center">CONTACT</span>
     <h2>「これ、仕組みにできますか？」<br>から始めましょう。</h2>
     <p class="sub">DXの入口相談、補助金の活用、基幹システムの見直しまで。<br>まずは現状を聞かせてください。</p>
-    <a class="contact-mail" href="mailto:sasaki78@odenga.com">sasaki78@odenga.com</a>
+    <a class="contact-mail" id="contact-mail-link"></a>
     <div class="contact-cta">
-      <a href="mailto:sasaki78@odenga.com" class="btn btn-primary">メールで相談する →</a>
+      <a href="#" class="btn btn-primary" id="contact-mail-btn">メールで相談する →</a>
     </div>
     <p class="reassure">初回相談は無料 ／ 勧誘なし ／ オンライン対応可</p>
   </div>
@@ -480,6 +480,17 @@
     },{threshold:.12});
     els.forEach(function(e){io.observe(e)});
   })();
+</script>
+<script>
+/* メールアドレスをJSで組み立て（スパムボット対策） */
+(function(){
+  var u='sasaki78',d='odenga',t='com';
+  var addr=u+'@'+d+'.'+t;
+  var ml=document.getElementById('contact-mail-link');
+  var mb=document.getElementById('contact-mail-btn');
+  if(ml){ml.href='mailto:'+addr;ml.textContent=addr;}
+  if(mb){mb.href='mailto:'+addr;}
+})();
 </script>
 <script>
 /* NOTES: posts.json を読み最新3件を描画。読めない場合(ローカル等)は SEED を表示。 */
