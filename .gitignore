@@ -1,0 +1,24 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# 作業用スクショ・一時ファイル（レビュー用に撮ったものはコミットしない）
+*.png
+*.jpg
+*.jpeg
+!assets/
+!assets/*.png
+!assets/*.jpg
+!assets/*.jpeg
+!assets/*.svg
+
+# 依存物（将来ツールを足した場合）
+node_modules/
+
+# 秘密情報は絶対にコミットしない（GAS鍵等はスクリプトプロパティで管理）
+.env
+*.key
+secrets*.json
