@@ -263,7 +263,7 @@ function commitToGitHub_(contentStr) {
 
 /* ============================================================ トリガー（任意） */
 function installTriggers() {
-  var MANAGED = ['generateDraft', 'generatePromptDraft', 'publishApproved', 'weeklyReminder', 'checkSiteHealth'];
+  var MANAGED = ['generateDraft', 'generatePromptDraft', 'publishApproved', 'weeklyReminder', 'checkSiteHealth', 'collectTrends'];
   ScriptApp.getProjectTriggers().forEach(function (t) {
     if (MANAGED.indexOf(t.getHandlerFunction()) !== -1) ScriptApp.deleteTrigger(t);
   });
@@ -272,7 +272,8 @@ function installTriggers() {
   ScriptApp.newTrigger('publishApproved').timeBased().everyDays(1).atHour(9).create();
   ScriptApp.newTrigger('weeklyReminder').timeBased().onWeekDay(ScriptApp.WeekDay.MONDAY).atHour(21).create();
   ScriptApp.newTrigger('checkSiteHealth').timeBased().everyDays(1).atHour(21).create();
-  Logger.log('トリガー設定完了（ノート=月朝 / プロンプト=木朝 / 公開=日次朝 / リマインド=月夜 / 監視=日次夜）。');
+  ScriptApp.newTrigger('collectTrends').timeBased().everyDays(1).atHour(7).create();
+  Logger.log('トリガー設定完了（ノート=月朝 / プロンプト=木朝 / 公開=日次朝 / トレンド=毎朝7時 / リマインド=月夜 / 監視=日次夜）。');
 }
 
 /* ============================================================ 週次リマインド */
@@ -313,6 +314,201 @@ function checkSiteHealth() {
   } else {
     Logger.log('サイト正常: ' + URL + ' (' + code + ')');
   }
+}
+
+/* ============================================================ トレンド収集・スコアリング */
+
+var TREND_SHEET = 'trends';
+var TREND_HEADER = ['date', 'keyword', 'count', 'relevance', 'comment', 'sources'];
+
+var RSS_SOURCES = [
+  { name: 'ITmedia AI+',       url: 'https://rss.itmedia.co.jp/rss/2.0/aiplus.xml' },
+  { name: 'ITmedia NEWS',      url: 'https://rss.itmedia.co.jp/rss/2.0/news_bursts.xml' },
+  { name: 'Zenn トレンド',      url: 'https://zenn.dev/feed' },
+  { name: '日経クロステック',    url: 'https://xtech.nikkei.com/rss/xtech-it.rdf' },
+  { name: 'NHK ビジネス',       url: 'https://www.nhk.or.jp/rss/news/cat4.xml' },
+  { name: 'Microsoft Japan',   url: 'https://techcommunity.microsoft.com/plugins/custom/microsoft/o365/rss-board?board.id=microsoft365blog' }
+];
+
+var WATCH_KEYWORDS = [
+  '生成AI', 'ChatGPT', 'Claude', 'Copilot', 'LLM',
+  'DX', 'デジタル変革', 'Power Automate', 'Power Platform', 'RPA',
+  '補助金', 'IT導入補助金', 'ものづくり補助金',
+  '業務効率化', '自動化', 'ペーパーレス',
+  'セキュリティ', 'サイバー攻撃', 'ゼロトラスト',
+  'クラウド', 'Azure', 'Microsoft 365',
+  '中小企業', 'スタートアップ', 'ERP'
+];
+
+function collectTrends() {
+  var today = today_();
+  var counts = {};
+  var sources = {};
+  WATCH_KEYWORDS.forEach(function(k) { counts[k] = 0; sources[k] = []; });
+
+  RSS_SOURCES.forEach(function(src) {
+    try {
+      var res = UrlFetchApp.fetch(src.url, { muteHttpExceptions: true, followRedirects: true });
+      if (res.getResponseCode() !== 200) return;
+      var xml = res.getContentText('UTF-8');
+      WATCH_KEYWORDS.forEach(function(k) {
+        var re = new RegExp(k, 'gi');
+        var matches = xml.match(re);
+        if (matches && matches.length > 0) {
+          counts[k] += matches.length;
+          if (sources[k].indexOf(src.name) === -1) sources[k].push(src.name);
+        }
+      });
+    } catch(e) {
+      Logger.log('RSS取得エラー(' + src.name + '): ' + e);
+    }
+  });
+
+  // 出現数が1件以上のキーワードを抽出しClaudeでスコアリング
+  var hits = WATCH_KEYWORDS.filter(function(k) { return counts[k] > 0; })
+    .sort(function(a, b) { return counts[b] - counts[a]; })
+    .slice(0, 20);
+
+  if (hits.length === 0) { Logger.log('トレンドキーワード該当なし'); return; }
+
+  var scored = scoreTrends_(hits, counts, sources, today);
+  saveTrends_(scored, today);
+  publishTrends_();
+  Logger.log('トレンド収集・公開完了: ' + hits.length + ' キーワード');
+}
+
+function scoreTrends_(hits, counts, sources, today) {
+  var list = hits.map(function(k) {
+    return k + '（' + counts[k] + '件 / ' + sources[k].join('・') + '）';
+  }).join('\n');
+
+  var prompt = '以下は本日(' + today + ')の日本のITニュースRSSで頻出したキーワード一覧です。\n\n'
+    + list + '\n\n'
+    + '各キーワードについて、日本の中小企業（従業員数〜300名、製造・商社・サービス業）への関連度を評価してください。\n'
+    + '必ずJSON配列のみを返してください（説明文不要）。形式:\n'
+    + '[{"keyword":"キーワード","relevance":"高|中|低","comment":"中小企業視点での一言（30字以内）"}]';
+
+  var model = prop_('CLAUDE_MODEL', DEFAULT_MODEL);
+  var apiKey = prop_('ANTHROPIC_API_KEY', '');
+  var payload = {
+    model: model,
+    max_tokens: 1024,
+    messages: [{ role: 'user', content: prompt }]
+  };
+  var res = UrlFetchApp.fetch('https://api.anthropic.com/v1/messages', {
+    method: 'post',
+    contentType: 'application/json',
+    headers: { 'x-api-key': apiKey, 'anthropic-version': '2023-06-01' },
+    payload: JSON.stringify(payload),
+    muteHttpExceptions: true
+  });
+  var json = JSON.parse(res.getContentText());
+  var text = json.content && json.content[0] ? json.content[0].text : '[]';
+  // JSON部分だけ抽出
+  var match = text.match(/\[[\s\S]*\]/);
+  var scored = match ? JSON.parse(match[0]) : [];
+  // countとsourcesをマージ
+  scored.forEach(function(item) {
+    item.count = counts[item.keyword] || 0;
+    item.sources = (sources[item.keyword] || []).join('・');
+    item.date = today;
+  });
+  return scored;
+}
+
+function saveTrends_(scored, today) {
+  var ss = ss_();
+  var sh = ss.getSheetByName(TREND_SHEET);
+  if (!sh) {
+    sh = ss.insertSheet(TREND_SHEET);
+    sh.appendRow(TREND_HEADER);
+  }
+  // 当日分を削除して上書き
+  var data = sh.getDataRange().getValues();
+  for (var i = data.length - 1; i >= 1; i--) {
+    if (data[i][0] === today) sh.deleteRow(i + 1);
+  }
+  scored.forEach(function(item) {
+    sh.appendRow([item.date, item.keyword, item.count, item.relevance, item.comment, item.sources]);
+  });
+}
+
+function publishTrends_() {
+  var sh = ss_().getSheetByName(TREND_SHEET);
+  if (!sh) return;
+  var data = sh.getDataRange().getValues();
+  var header = data[0];
+  var dateIdx = header.indexOf('date');
+  var kwIdx   = header.indexOf('keyword');
+  var cntIdx  = header.indexOf('count');
+  var relIdx  = header.indexOf('relevance');
+  var comIdx  = header.indexOf('comment');
+  var srcIdx  = header.indexOf('sources');
+
+  // 直近7日分を収集
+  var byDate = {};
+  for (var i = 1; i < data.length; i++) {
+    var d = data[i][dateIdx];
+    if (!d) continue;
+    if (!byDate[d]) byDate[d] = [];
+    byDate[d].push({
+      keyword:   data[i][kwIdx],
+      count:     data[i][cntIdx],
+      relevance: data[i][relIdx],
+      comment:   data[i][comIdx],
+      sources:   data[i][srcIdx]
+    });
+  }
+  var dates = Object.keys(byDate).sort().reverse();
+  var daily  = dates[0] ? byDate[dates[0]] : [];
+  // Weekly: 直近7日分のキーワードをcount合計
+  var weeklyMap = {};
+  dates.slice(0, 7).forEach(function(d) {
+    byDate[d].forEach(function(item) {
+      if (!weeklyMap[item.keyword]) weeklyMap[item.keyword] = { count: 0, relevance: item.relevance, comment: item.comment };
+      weeklyMap[item.keyword].count += item.count;
+    });
+  });
+  var weekly = Object.keys(weeklyMap).map(function(k) {
+    return { keyword: k, count: weeklyMap[k].count, relevance: weeklyMap[k].relevance, comment: weeklyMap[k].comment };
+  }).sort(function(a, b) { return b.count - a.count; }).slice(0, 15);
+
+  var trendJson = {
+    updatedAt: dates[0] || today_(),
+    daily:  daily.slice(0, 15),
+    weekly: weekly
+  };
+
+  // trends.json を GitHub に push
+  var repo   = prop_('GITHUB_REPO', '');
+  var branch = prop_('GITHUB_BRANCH', 'main');
+  var token  = prop_('GITHUB_TOKEN', '');
+  if (!repo || !token) { Logger.log('GITHUB設定なし、trends.json公開スキップ'); return; }
+
+  var apiUrl = 'https://api.github.com/repos/' + repo + '/contents/trends.json';
+  var current;
+  try {
+    var get = UrlFetchApp.fetch(apiUrl, {
+      headers: { Authorization: 'token ' + token, Accept: 'application/vnd.github.v3+json' },
+      muteHttpExceptions: true
+    });
+    current = JSON.parse(get.getContentText());
+  } catch(e) { current = {}; }
+
+  var body = {
+    message: 'chore: update trends.json (' + trendJson.updatedAt + ')',
+    content: Utilities.base64Encode(JSON.stringify(trendJson, null, 2), Utilities.Charset.UTF_8),
+    branch:  branch
+  };
+  if (current.sha) body.sha = current.sha;
+
+  UrlFetchApp.fetch(apiUrl, {
+    method: 'put',
+    contentType: 'application/json',
+    headers: { Authorization: 'token ' + token, Accept: 'application/vnd.github.v3+json' },
+    payload: JSON.stringify(body),
+    muteHttpExceptions: true
+  });
 }
 
 /* ============================================================ テスト用 */
