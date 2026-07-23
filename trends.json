@@ -1,0 +1,189 @@
+{
+  "updatedAt": "Thu Jul 23 2026 00:00:00 GMT+0900 (Japan Standard Time)",
+  "daily": [
+    {
+      "keyword": "DX",
+      "count": 30,
+      "relevance": "高",
+      "comment": "業務効率化と競争力強化に直結。中小企業の重要課題。",
+      "sources": "Zenn トレンド"
+    },
+    {
+      "keyword": "生成AI",
+      "count": 11,
+      "relevance": "高",
+      "comment": "業務自動化と生産性向上で中小企業の課題解決に有効。",
+      "sources": "ITmedia AI+・ITmedia NEWS・Zenn トレンド・日経クロステック"
+    },
+    {
+      "keyword": "Claude",
+      "count": 10,
+      "relevance": "中",
+      "comment": "生成AI活用の具体的選択肢。導入検討対象。",
+      "sources": "ITmedia AI+・ITmedia NEWS・Zenn トレンド"
+    },
+    {
+      "keyword": "LLM",
+      "count": 9,
+      "relevance": "中",
+      "comment": "生成AI活用の技術基盤。理解深化に有用。",
+      "sources": "ITmedia AI+・ITmedia NEWS・Zenn トレンド・日経クロステック"
+    },
+    {
+      "keyword": "セキュリティ",
+      "count": 9,
+      "relevance": "高",
+      "comment": "サイバー攻撃対策は経営リスク。優先度高。",
+      "sources": "ITmedia NEWS・Zenn トレンド・日経クロステック"
+    },
+    {
+      "keyword": "クラウド",
+      "count": 8,
+      "relevance": "高",
+      "comment": "低コスト化・スケーラビリティで中小企業に最適。",
+      "sources": "ITmedia AI+・ITmedia NEWS・日経クロステック"
+    },
+    {
+      "keyword": "サイバー攻撃",
+      "count": 7,
+      "relevance": "高",
+      "comment": "中小企業も標的。対策は急務。",
+      "sources": "ITmedia AI+・ITmedia NEWS"
+    },
+    {
+      "keyword": "中小企業",
+      "count": 4,
+      "relevance": "高",
+      "comment": "直接的な対象。関連性最高。",
+      "sources": "ITmedia AI+・日経クロステック"
+    },
+    {
+      "keyword": "ChatGPT",
+      "count": 3,
+      "relevance": "中",
+      "comment": "生成AI活用の入門ツール。利用検討対象。",
+      "sources": "Zenn トレンド"
+    },
+    {
+      "keyword": "ERP",
+      "count": 3,
+      "relevance": "中",
+      "comment": "基幹システム統合。成長期企業で検討価値あり。",
+      "sources": "ITmedia AI+"
+    },
+    {
+      "keyword": "自動化",
+      "count": 2,
+      "relevance": "高",
+      "comment": "労働生産性向上に不可欠。コスト削減効果大。",
+      "sources": "日経クロステック"
+    },
+    {
+      "keyword": "Azure",
+      "count": 2,
+      "relevance": "中",
+      "comment": "クラウド選択肢の一つ。Microsoft製品利用企業に有用。",
+      "sources": "ITmedia NEWS"
+    },
+    {
+      "keyword": "Microsoft 365",
+      "count": 2,
+      "relevance": "中",
+      "comment": "生産性向上ツール。既存ユーザーに関連度高。",
+      "sources": "ITmedia AI+・ITmedia NEWS"
+    },
+    {
+      "keyword": "スタートアップ",
+      "count": 1,
+      "relevance": "低",
+      "comment": "中小企業の参考事例。直接性は低い。",
+      "sources": "Zenn トレンド"
+    }
+  ],
+  "weekly": [
+    {
+      "keyword": "DX",
+      "count": 30,
+      "relevance": "高",
+      "comment": "業務効率化と競争力強化に直結。中小企業の重要課題。"
+    },
+    {
+      "keyword": "生成AI",
+      "count": 11,
+      "relevance": "高",
+      "comment": "業務自動化と生産性向上で中小企業の課題解決に有効。"
+    },
+    {
+      "keyword": "Claude",
+      "count": 10,
+      "relevance": "中",
+      "comment": "生成AI活用の具体的選択肢。導入検討対象。"
+    },
+    {
+      "keyword": "LLM",
+      "count": 9,
+      "relevance": "中",
+      "comment": "生成AI活用の技術基盤。理解深化に有用。"
+    },
+    {
+      "keyword": "セキュリティ",
+      "count": 9,
+      "relevance": "高",
+      "comment": "サイバー攻撃対策は経営リスク。優先度高。"
+    },
+    {
+      "keyword": "クラウド",
+      "count": 8,
+      "relevance": "高",
+      "comment": "低コスト化・スケーラビリティで中小企業に最適。"
+    },
+    {
+      "keyword": "サイバー攻撃",
+      "count": 7,
+      "relevance": "高",
+      "comment": "中小企業も標的。対策は急務。"
+    },
+    {
+      "keyword": "中小企業",
+      "count": 4,
+      "relevance": "高",
+      "comment": "直接的な対象。関連性最高。"
+    },
+    {
+      "keyword": "ChatGPT",
+      "count": 3,
+      "relevance": "中",
+      "comment": "生成AI活用の入門ツール。利用検討対象。"
+    },
+    {
+      "keyword": "ERP",
+      "count": 3,
+      "relevance": "中",
+      "comment": "基幹システム統合。成長期企業で検討価値あり。"
+    },
+    {
+      "keyword": "自動化",
+      "count": 2,
+      "relevance": "高",
+      "comment": "労働生産性向上に不可欠。コスト削減効果大。"
+    },
+    {
+      "keyword": "Azure",
+      "count": 2,
+      "relevance": "中",
+      "comment": "クラウド選択肢の一つ。Microsoft製品利用企業に有用。"
+    },
+    {
+      "keyword": "Microsoft 365",
+      "count": 2,
+      "relevance": "中",
+      "comment": "生産性向上ツール。既存ユーザーに関連度高。"
+    },
+    {
+      "keyword": "スタートアップ",
+      "count": 1,
+      "relevance": "低",
+      "comment": "中小企業の参考事例。直接性は低い。"
+    }
+  ]
+}
