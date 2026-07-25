@@ -103,69 +103,75 @@
   "weekly": [
     {
       "keyword": "DX",
-      "count": 90,
+      "count": 120,
       "relevance": "高",
       "comment": "業務効率化と競争力強化に直結。中小企業の重要課題。"
     },
     {
       "keyword": "Claude",
-      "count": 46,
+      "count": 68,
       "relevance": "中",
       "comment": "生成AI活用の具体的選択肢。導入検討対象。"
     },
     {
       "keyword": "生成AI",
-      "count": 34,
+      "count": 49,
       "relevance": "高",
       "comment": "業務自動化と生産性向上で中小企業の課題解決に有効。"
     },
     {
       "keyword": "セキュリティ",
-      "count": 24,
+      "count": 33,
       "relevance": "高",
       "comment": "サイバー攻撃対策は経営リスク。優先度高。"
     },
     {
-      "keyword": "LLM",
-      "count": 21,
-      "relevance": "中",
-      "comment": "生成AI活用の技術基盤。理解深化に有用。"
-    },
-    {
       "keyword": "サイバー攻撃",
-      "count": 21,
+      "count": 28,
       "relevance": "高",
       "comment": "中小企業も標的。対策は急務。"
     },
     {
+      "keyword": "LLM",
+      "count": 25,
+      "relevance": "中",
+      "comment": "生成AI活用の技術基盤。理解深化に有用。"
+    },
+    {
       "keyword": "中小企業",
-      "count": 16,
+      "count": 21,
       "relevance": "高",
       "comment": "直接的な対象。関連性最高。"
     },
     {
       "keyword": "クラウド",
-      "count": 15,
+      "count": 17,
       "relevance": "高",
       "comment": "低コスト化・スケーラビリティで中小企業に最適。"
     },
     {
       "keyword": "ChatGPT",
-      "count": 6,
+      "count": 9,
       "relevance": "中",
       "comment": "生成AI活用の入門ツール。利用検討対象。"
     },
     {
       "keyword": "自動化",
-      "count": 6,
+      "count": 8,
       "relevance": "高",
       "comment": "労働生産性向上に不可欠。コスト削減効果大。"
     },
     {
       "keyword": "Microsoft 365",
-      "count": 6,
+      "count": 7,
       "relevance": "中",
       "comment": "生産性向上ツール。既存ユーザーに関連度高。"
+    },
+    {
+      "keyword": "スタートアップ",
+      "count": 7,
+      "relevance": "低",
+      "comment": "中小企業の参考事例。直接性は低い。"
     },
     {
       "keyword": "ERP",
@@ -174,22 +180,16 @@
       "comment": "基幹システム統合。成長期企業で検討価値あり。"
     },
     {
-      "keyword": "スタートアップ",
-      "count": 5,
-      "relevance": "低",
-      "comment": "中小企業の参考事例。直接性は低い。"
-    },
-    {
       "keyword": "Azure",
-      "count": 4,
+      "count": 5,
       "relevance": "中",
       "comment": "クラウド選択肢の一つ。Microsoft製品利用企業に有用。"
     },
     {
       "keyword": "Copilot",
-      "count": 2,
+      "count": 4,
       "relevance": "中",
-      "comment": "Microsoft製品利用企業には有用だが導入率は低い"
+      "comment": "Microsoft製品ユーザーには有用。既存システム連携が課題"
     }
   ]
 }
