@@ -103,43 +103,43 @@
   "weekly": [
     {
       "keyword": "DX",
-      "count": 120,
+      "count": 153,
       "relevance": "高",
       "comment": "業務効率化と競争力強化に直結。中小企業の重要課題。"
     },
     {
       "keyword": "Claude",
-      "count": 68,
+      "count": 96,
       "relevance": "中",
       "comment": "生成AI活用の具体的選択肢。導入検討対象。"
     },
     {
       "keyword": "生成AI",
-      "count": 49,
+      "count": 69,
       "relevance": "高",
       "comment": "業務自動化と生産性向上で中小企業の課題解決に有効。"
     },
     {
       "keyword": "セキュリティ",
-      "count": 33,
+      "count": 43,
       "relevance": "高",
       "comment": "サイバー攻撃対策は経営リスク。優先度高。"
     },
     {
       "keyword": "サイバー攻撃",
-      "count": 28,
+      "count": 35,
       "relevance": "高",
       "comment": "中小企業も標的。対策は急務。"
     },
     {
       "keyword": "LLM",
-      "count": 25,
+      "count": 28,
       "relevance": "中",
       "comment": "生成AI活用の技術基盤。理解深化に有用。"
     },
     {
       "keyword": "中小企業",
-      "count": 21,
+      "count": 24,
       "relevance": "高",
       "comment": "直接的な対象。関連性最高。"
     },
@@ -151,19 +151,19 @@
     },
     {
       "keyword": "ChatGPT",
-      "count": 9,
+      "count": 13,
       "relevance": "中",
       "comment": "生成AI活用の入門ツール。利用検討対象。"
     },
     {
       "keyword": "自動化",
-      "count": 8,
+      "count": 9,
       "relevance": "高",
       "comment": "労働生産性向上に不可欠。コスト削減効果大。"
     },
     {
       "keyword": "Microsoft 365",
-      "count": 7,
+      "count": 8,
       "relevance": "中",
       "comment": "生産性向上ツール。既存ユーザーに関連度高。"
     },
@@ -174,22 +174,22 @@
       "comment": "中小企業の参考事例。直接性は低い。"
     },
     {
-      "keyword": "ERP",
-      "count": 5,
-      "relevance": "中",
-      "comment": "基幹システム統合。成長期企業で検討価値あり。"
-    },
-    {
       "keyword": "Azure",
-      "count": 5,
+      "count": 6,
       "relevance": "中",
       "comment": "クラウド選択肢の一つ。Microsoft製品利用企業に有用。"
     },
     {
       "keyword": "Copilot",
-      "count": 4,
+      "count": 6,
       "relevance": "中",
       "comment": "Microsoft製品ユーザーには有用。既存システム連携が課題"
+    },
+    {
+      "keyword": "ERP",
+      "count": 5,
+      "relevance": "中",
+      "comment": "基幹システム統合。成長期企業で検討価値あり。"
     }
   ]
 }
