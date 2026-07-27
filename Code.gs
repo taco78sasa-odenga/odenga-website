@@ -288,9 +288,26 @@ function weeklyReminder() {
   for (var i = 1; i < data.length; i++) {
     if (data[i][statusIdx] === 'draft') drafts.push('・' + data[i][titleIdx]);
   }
+  var ssUrl = SpreadsheetApp.getActiveSpreadsheet().getUrl();
   var body = drafts.length > 0
-    ? '承認待ちの下書きが ' + drafts.length + ' 件あります。\n\n' + drafts.join('\n') + '\n\nスプレッドシートで status を approved に変更してください。'
-    : '現在、承認待ちの下書きはありません。\n\n今週のネタを topics シートに追加しておくと、次回の generateDraft() で下書きが生成されます。';
+    ? '承認待ちの下書きが ' + drafts.length + ' 件あります。\n\n'
+      + drafts.join('\n')
+      + '\n\n'
+      + '─────────────────────────\n'
+      + '【承認手順】\n'
+      + '① 下記のスプレッドシートを開く\n'
+      + ssUrl + '\n\n'
+      + '② 「posts」シートタブをクリック\n'
+      + '③ 上記タイトルの行を探し、一番右の「status」列を確認\n'
+      + '④「draft」と書いてあるセルを「approved」に書き換えて Enter\n'
+      + '⑤ 毎朝9時の自動処理でHPに公開されます\n'
+      + '─────────────────────────\n'
+      + '※ 内容を修正したい場合は、同じ行の「title」「excerpt」「body」列を直接編集してからapprovedに変更してください。'
+    : '現在、承認待ちの下書きはありません。\n\n'
+      + '今週のネタを追加する場合は、\n'
+      + ssUrl + '\n'
+      + '上記スプレッドシートの「topics」シートに題材を追加してください。\n'
+      + '次の月曜朝8時に generateDraft() が自動実行され、下書きが生成されます。';
   GmailApp.sendEmail(TO, '【オデンガHP】週次コンテンツリマインド', body, { cc: CC });
   Logger.log('週次リマインドメール送信完了。');
 }
