@@ -1,141 +1,134 @@
 {
-  "updatedAt": "Thu Jul 23 2026 00:00:00 GMT+0900 (Japan Standard Time)",
+  "updatedAt": "Tue Jul 28 2026 00:00:00 GMT+0900 (Japan Standard Time)",
   "daily": [
     {
-      "keyword": "DX",
+      "keyword": "Claude",
       "count": 30,
+      "relevance": "中",
+      "comment": "生成AI活用の選択肢。ChatGPT比較検討対象として関心度上昇中",
+      "sources": "ITmedia AI+・ITmedia NEWS・Zenn トレンド"
+    },
+    {
+      "keyword": "DX",
+      "count": 29,
       "relevance": "高",
-      "comment": "業務効率化と競争力強化に直結。中小企業の重要課題。",
+      "comment": "中小企業の経営課題の中核。業務効率化・競争力強化に不可欠",
       "sources": "Zenn トレンド"
     },
     {
       "keyword": "生成AI",
-      "count": 11,
+      "count": 15,
       "relevance": "高",
-      "comment": "業務自動化と生産性向上で中小企業の課題解決に有効。",
-      "sources": "ITmedia AI+・ITmedia NEWS・Zenn トレンド・日経クロステック"
-    },
-    {
-      "keyword": "Claude",
-      "count": 10,
-      "relevance": "中",
-      "comment": "生成AI活用の具体的選択肢。導入検討対象。",
-      "sources": "ITmedia AI+・ITmedia NEWS・Zenn トレンド"
-    },
-    {
-      "keyword": "LLM",
-      "count": 9,
-      "relevance": "中",
-      "comment": "生成AI活用の技術基盤。理解深化に有用。",
-      "sources": "ITmedia AI+・ITmedia NEWS・Zenn トレンド・日経クロステック"
+      "comment": "業務自動化・生産性向上の最有力ツール。導入検討が急速に進行",
+      "sources": "ITmedia AI+・ITmedia NEWS・Zenn トレンド・日経クロステック・NHK ビジネス"
     },
     {
       "keyword": "セキュリティ",
-      "count": 9,
+      "count": 13,
       "relevance": "高",
-      "comment": "サイバー攻撃対策は経営リスク。優先度高。",
-      "sources": "ITmedia NEWS・Zenn トレンド・日経クロステック"
-    },
-    {
-      "keyword": "クラウド",
-      "count": 8,
-      "relevance": "高",
-      "comment": "低コスト化・スケーラビリティで中小企業に最適。",
-      "sources": "ITmedia AI+・ITmedia NEWS・日経クロステック"
+      "comment": "DX推進時に最優先課題。サイバー脅威対策が経営リスク管理に直結",
+      "sources": "ITmedia AI+・ITmedia NEWS・Zenn トレンド・日経クロステック"
     },
     {
       "keyword": "サイバー攻撃",
-      "count": 7,
+      "count": 5,
       "relevance": "高",
-      "comment": "中小企業も標的。対策は急務。",
-      "sources": "ITmedia AI+・ITmedia NEWS"
-    },
-    {
-      "keyword": "中小企業",
-      "count": 4,
-      "relevance": "高",
-      "comment": "直接的な対象。関連性最高。",
-      "sources": "ITmedia AI+・日経クロステック"
+      "comment": "中小企業も標的化。対策不足が経営危機につながる重大リスク",
+      "sources": "ITmedia NEWS"
     },
     {
       "keyword": "ChatGPT",
-      "count": 3,
-      "relevance": "中",
-      "comment": "生成AI活用の入門ツール。利用検討対象。",
-      "sources": "Zenn トレンド"
-    },
-    {
-      "keyword": "ERP",
-      "count": 3,
-      "relevance": "中",
-      "comment": "基幹システム統合。成長期企業で検討価値あり。",
-      "sources": "ITmedia AI+"
-    },
-    {
-      "keyword": "自動化",
-      "count": 2,
+      "count": 4,
       "relevance": "高",
-      "comment": "労働生産性向上に不可欠。コスト削減効果大。",
-      "sources": "日経クロステック"
+      "comment": "最も認知度高い生成AI。業務導入の入口として重要な選択肢",
+      "sources": "ITmedia NEWS・Zenn トレンド"
     },
     {
-      "keyword": "Azure",
-      "count": 2,
+      "keyword": "Copilot",
+      "count": 3,
       "relevance": "中",
-      "comment": "クラウド選択肢の一つ。Microsoft製品利用企業に有用。",
-      "sources": "ITmedia NEWS"
+      "comment": "Microsoft365との統合で利便性向上。既存ユーザー企業に有利",
+      "sources": "ITmedia AI+・日経クロステック"
+    },
+    {
+      "keyword": "LLM",
+      "count": 2,
+      "relevance": "低",
+      "comment": "技術用語として認知度低い。実装技術より活用法が重要",
+      "sources": "ITmedia AI+・ITmedia NEWS"
     },
     {
       "keyword": "Microsoft 365",
       "count": 2,
       "relevance": "中",
-      "comment": "生産性向上ツール。既存ユーザーに関連度高。",
+      "comment": "既導入企業多数。AI機能統合で価値向上、追加投資検討機会",
       "sources": "ITmedia AI+・ITmedia NEWS"
     },
     {
-      "keyword": "スタートアップ",
+      "keyword": "自動化",
+      "count": 1,
+      "relevance": "高",
+      "comment": "製造・事務業務の効率化需要高い。生成AIで実現可能性向上",
+      "sources": "Zenn トレンド"
+    },
+    {
+      "keyword": "クラウド",
+      "count": 1,
+      "relevance": "中",
+      "comment": "基盤技術。生成AI活用にはクラウド環境が前提になりつつある",
+      "sources": "Zenn トレンド"
+    },
+    {
+      "keyword": "Azure",
       "count": 1,
       "relevance": "低",
-      "comment": "中小企業の参考事例。直接性は低い。",
+      "comment": "Microsoft系企業向け。中小企業の認知度・導入率は限定的",
       "sources": "Zenn トレンド"
+    },
+    {
+      "keyword": "ERP",
+      "count": 1,
+      "relevance": "低",
+      "comment": "大規模投資が必要。中小企業の導入障壁は依然高い",
+      "sources": "ITmedia AI+"
     }
   ],
   "weekly": [
     {
       "keyword": "DX",
-      "count": 153,
+      "count": 182,
       "relevance": "高",
-      "comment": "業務効率化と競争力強化に直結。中小企業の重要課題。"
+      "comment": "中小企業の経営課題の中核。業務効率化・競争力強化に不可欠"
     },
     {
       "keyword": "Claude",
-      "count": 96,
+      "count": 126,
       "relevance": "中",
-      "comment": "生成AI活用の具体的選択肢。導入検討対象。"
+      "comment": "生成AI活用の選択肢。ChatGPT比較検討対象として関心度上昇中"
     },
     {
       "keyword": "生成AI",
-      "count": 69,
+      "count": 84,
       "relevance": "高",
-      "comment": "業務自動化と生産性向上で中小企業の課題解決に有効。"
+      "comment": "業務自動化・生産性向上の最有力ツール。導入検討が急速に進行"
     },
     {
       "keyword": "セキュリティ",
-      "count": 43,
+      "count": 56,
       "relevance": "高",
-      "comment": "サイバー攻撃対策は経営リスク。優先度高。"
+      "comment": "DX推進時に最優先課題。サイバー脅威対策が経営リスク管理に直結"
     },
     {
       "keyword": "サイバー攻撃",
-      "count": 35,
+      "count": 40,
       "relevance": "高",
-      "comment": "中小企業も標的。対策は急務。"
+      "comment": "中小企業も標的化。対策不足が経営危機につながる重大リスク"
     },
     {
       "keyword": "LLM",
-      "count": 28,
-      "relevance": "中",
-      "comment": "生成AI活用の技術基盤。理解深化に有用。"
+      "count": 30,
+      "relevance": "低",
+      "comment": "技術用語として認知度低い。実装技術より活用法が重要"
     },
     {
       "keyword": "中小企業",
@@ -145,27 +138,39 @@
     },
     {
       "keyword": "クラウド",
-      "count": 17,
-      "relevance": "高",
-      "comment": "低コスト化・スケーラビリティで中小企業に最適。"
+      "count": 18,
+      "relevance": "中",
+      "comment": "基盤技術。生成AI活用にはクラウド環境が前提になりつつある"
     },
     {
       "keyword": "ChatGPT",
-      "count": 13,
-      "relevance": "中",
-      "comment": "生成AI活用の入門ツール。利用検討対象。"
-    },
-    {
-      "keyword": "自動化",
-      "count": 9,
+      "count": 17,
       "relevance": "高",
-      "comment": "労働生産性向上に不可欠。コスト削減効果大。"
+      "comment": "最も認知度高い生成AI。業務導入の入口として重要な選択肢"
     },
     {
       "keyword": "Microsoft 365",
-      "count": 8,
+      "count": 10,
       "relevance": "中",
-      "comment": "生産性向上ツール。既存ユーザーに関連度高。"
+      "comment": "既導入企業多数。AI機能統合で価値向上、追加投資検討機会"
+    },
+    {
+      "keyword": "自動化",
+      "count": 10,
+      "relevance": "高",
+      "comment": "製造・事務業務の効率化需要高い。生成AIで実現可能性向上"
+    },
+    {
+      "keyword": "Copilot",
+      "count": 9,
+      "relevance": "中",
+      "comment": "Microsoft365との統合で利便性向上。既存ユーザー企業に有利"
+    },
+    {
+      "keyword": "Azure",
+      "count": 7,
+      "relevance": "低",
+      "comment": "Microsoft系企業向け。中小企業の認知度・導入率は限定的"
     },
     {
       "keyword": "スタートアップ",
@@ -174,22 +179,10 @@
       "comment": "中小企業の参考事例。直接性は低い。"
     },
     {
-      "keyword": "Azure",
-      "count": 6,
-      "relevance": "中",
-      "comment": "クラウド選択肢の一つ。Microsoft製品利用企業に有用。"
-    },
-    {
-      "keyword": "Copilot",
-      "count": 6,
-      "relevance": "中",
-      "comment": "Microsoft製品ユーザーには有用。既存システム連携が課題"
-    },
-    {
       "keyword": "ERP",
-      "count": 5,
-      "relevance": "中",
-      "comment": "基幹システム統合。成長期企業で検討価値あり。"
+      "count": 6,
+      "relevance": "低",
+      "comment": "大規模投資が必要。中小企業の導入障壁は依然高い"
     }
   ]
 }
