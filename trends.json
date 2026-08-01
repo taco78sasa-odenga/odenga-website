@@ -75,13 +75,13 @@
   "weekly": [
     {
       "keyword": "DX",
-      "count": 212,
+      "count": 216,
       "relevance": "高",
       "comment": "経営課題として最優先。業務改革と競争力強化に直結する"
     },
     {
       "keyword": "Claude",
-      "count": 138,
+      "count": 134,
       "relevance": "中",
       "comment": "生成AI選択肢の一つ。導入検討時の比較対象となる"
     },
@@ -99,9 +99,15 @@
     },
     {
       "keyword": "LLM",
-      "count": 36,
+      "count": 35,
       "relevance": "中",
       "comment": "生成AIの技術基盤。理解深化で適切な活用判断が可能"
+    },
+    {
+      "keyword": "Copilot",
+      "count": 32,
+      "relevance": "高",
+      "comment": "Microsoft製品との統合で実装しやすく、採用企業多い"
     },
     {
       "keyword": "ChatGPT",
@@ -122,18 +128,6 @@
       "comment": "中小企業も標的化。対策不足が経営危機につながる重大リスク"
     },
     {
-      "keyword": "Copilot",
-      "count": 29,
-      "relevance": "高",
-      "comment": "Microsoft製品との統合で実装しやすく、採用企業多い"
-    },
-    {
-      "keyword": "自動化",
-      "count": 15,
-      "relevance": "高",
-      "comment": "製造・事務業務の効率化需要高い。生成AIで実現可能性向上"
-    },
-    {
       "keyword": "中小企業",
       "count": 14,
       "relevance": "高",
@@ -141,13 +135,19 @@
     },
     {
       "keyword": "Microsoft 365",
-      "count": 12,
+      "count": 13,
       "relevance": "高",
       "comment": "既存利用率高く、AI統合で投資効果が見込める"
     },
     {
+      "keyword": "自動化",
+      "count": 13,
+      "relevance": "高",
+      "comment": "製造・事務業務の効率化需要高い。生成AIで実現可能性向上"
+    },
+    {
       "keyword": "ERP",
-      "count": 9,
+      "count": 8,
       "relevance": "低",
       "comment": "大規模投資が必要。中小企業の導入障壁は依然高い"
     },
