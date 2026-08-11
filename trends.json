@@ -75,19 +75,19 @@
   "weekly": [
     {
       "keyword": "DX",
-      "count": 218,
+      "count": 213,
       "relevance": "高",
       "comment": "経営課題として最優先。業務改革と競争力強化に直結する"
     },
     {
       "keyword": "Claude",
-      "count": 141,
+      "count": 152,
       "relevance": "中",
       "comment": "生成AI選択肢の一つ。導入検討時の比較対象となる"
     },
     {
       "keyword": "生成AI",
-      "count": 93,
+      "count": 97,
       "relevance": "高",
       "comment": "業務効率化の切り札。導入による競争優位性の獲得が急務"
     },
@@ -99,15 +99,15 @@
     },
     {
       "keyword": "LLM",
-      "count": 38,
+      "count": 34,
       "relevance": "中",
       "comment": "生成AIの技術基盤。理解深化で適切な活用判断が可能"
     },
     {
-      "keyword": "クラウド",
+      "keyword": "ChatGPT",
       "count": 31,
-      "relevance": "高",
-      "comment": "インフラ整備の基盤。DX推進に不可欠な環境"
+      "relevance": "中",
+      "comment": "認知度高く試しやすい。ただし法人利用の規約確認必須"
     },
     {
       "keyword": "Copilot",
@@ -116,52 +116,52 @@
       "comment": "Microsoft製品との統合で実装しやすく、採用企業多い"
     },
     {
-      "keyword": "ChatGPT",
-      "count": 28,
-      "relevance": "中",
-      "comment": "認知度高く試しやすい。ただし法人利用の規約確認必須"
-    },
-    {
-      "keyword": "サイバー攻撃",
-      "count": 22,
+      "keyword": "クラウド",
+      "count": 25,
       "relevance": "高",
-      "comment": "ランサムウェア被害増加で、中小企業も対策が急務"
+      "comment": "インフラ整備の基盤。DX推進に不可欠な環境"
     },
     {
       "keyword": "自動化",
-      "count": 21,
+      "count": 25,
       "relevance": "高",
-      "comment": "人手不足解決の重要施策。製造・商社で特に関心が高い"
+      "comment": "人手不足解消の切り札。限られた資源の効率配分が実現できる"
+    },
+    {
+      "keyword": "サイバー攻撃",
+      "count": 19,
+      "relevance": "高",
+      "comment": "中小企業も標的。対策不足は事業継続を脅かす重大リスク"
     },
     {
       "keyword": "業務効率化",
-      "count": 12,
+      "count": 13,
       "relevance": "高",
       "comment": "中小企業の経営目標。生成AIで即効性期待"
-    },
-    {
-      "keyword": "Microsoft 365",
-      "count": 10,
-      "relevance": "高",
-      "comment": "既存利用率高く、AI統合で投資効果が見込める"
-    },
-    {
-      "keyword": "中小企業",
-      "count": 10,
-      "relevance": "高",
-      "comment": "本リストの対象そのもの。関連記事が増加している"
     },
     {
       "keyword": "ERP",
       "count": 10,
       "relevance": "中",
-      "comment": "業務システム統合。中堅企業向け。導入コスト課題あり"
+      "comment": "経営統合システム。規模に応じたクラウド型選択肢が出現中"
+    },
+    {
+      "keyword": "Microsoft 365",
+      "count": 8,
+      "relevance": "高",
+      "comment": "既存利用率高く、AI統合で投資効果が見込める"
+    },
+    {
+      "keyword": "中小企業",
+      "count": 6,
+      "relevance": "高",
+      "comment": "本リストの対象そのもの。関連記事が増加している"
     },
     {
       "keyword": "スタートアップ",
       "count": 5,
       "relevance": "低",
-      "comment": "中小企業支援という文脈除き、直接的な関連性は限定的"
+      "comment": "新興企業情報。中小企業向けソリューション提供企業として注視価値"
     }
   ]
 }
