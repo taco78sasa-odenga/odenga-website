@@ -75,51 +75,39 @@
   "weekly": [
     {
       "keyword": "DX",
-      "count": 213,
+      "count": 217,
       "relevance": "高",
       "comment": "経営課題として最優先。業務改革と競争力強化に直結する"
     },
     {
       "keyword": "Claude",
-      "count": 152,
+      "count": 148,
       "relevance": "中",
       "comment": "生成AI選択肢の一つ。導入検討時の比較対象となる"
     },
     {
       "keyword": "生成AI",
-      "count": 97,
+      "count": 88,
       "relevance": "高",
       "comment": "業務効率化の切り札。導入による競争優位性の獲得が急務"
     },
     {
       "keyword": "セキュリティ",
-      "count": 53,
+      "count": 54,
       "relevance": "高",
       "comment": "DX推進時の必須要件。情報漏洩リスク対策が重要"
     },
     {
       "keyword": "LLM",
-      "count": 34,
+      "count": 36,
       "relevance": "中",
       "comment": "生成AIの技術基盤。理解深化で適切な活用判断が可能"
     },
     {
       "keyword": "ChatGPT",
-      "count": 31,
+      "count": 28,
       "relevance": "中",
       "comment": "認知度高く試しやすい。ただし法人利用の規約確認必須"
-    },
-    {
-      "keyword": "Copilot",
-      "count": 30,
-      "relevance": "高",
-      "comment": "Microsoft製品との統合で実装しやすく、採用企業多い"
-    },
-    {
-      "keyword": "クラウド",
-      "count": 25,
-      "relevance": "高",
-      "comment": "インフラ整備の基盤。DX推進に不可欠な環境"
     },
     {
       "keyword": "自動化",
@@ -128,26 +116,38 @@
       "comment": "人手不足解消の切り札。限られた資源の効率配分が実現できる"
     },
     {
+      "keyword": "クラウド",
+      "count": 24,
+      "relevance": "高",
+      "comment": "インフラ整備の基盤。DX推進に不可欠な環境"
+    },
+    {
+      "keyword": "Copilot",
+      "count": 21,
+      "relevance": "高",
+      "comment": "Microsoft製品との統合で実装しやすく、採用企業多い"
+    },
+    {
       "keyword": "サイバー攻撃",
-      "count": 19,
+      "count": 20,
       "relevance": "高",
       "comment": "中小企業も標的。対策不足は事業継続を脅かす重大リスク"
     },
     {
-      "keyword": "業務効率化",
-      "count": 13,
-      "relevance": "高",
-      "comment": "中小企業の経営目標。生成AIで即効性期待"
-    },
-    {
       "keyword": "ERP",
-      "count": 10,
+      "count": 13,
       "relevance": "中",
       "comment": "経営統合システム。規模に応じたクラウド型選択肢が出現中"
     },
     {
+      "keyword": "業務効率化",
+      "count": 11,
+      "relevance": "高",
+      "comment": "中小企業の経営目標。生成AIで即効性期待"
+    },
+    {
       "keyword": "Microsoft 365",
-      "count": 8,
+      "count": 6,
       "relevance": "高",
       "comment": "既存利用率高く、AI統合で投資効果が見込める"
     },
