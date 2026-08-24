@@ -81,49 +81,43 @@
     },
     {
       "keyword": "Claude",
-      "count": 157,
+      "count": 149,
       "relevance": "中",
       "comment": "生成AI選択肢の一つ。導入検討時の比較対象となる"
     },
     {
       "keyword": "生成AI",
-      "count": 80,
+      "count": 74,
       "relevance": "高",
       "comment": "業務効率化の切り札。導入による競争優位性の獲得が急務"
     },
     {
       "keyword": "セキュリティ",
-      "count": 57,
+      "count": 58,
       "relevance": "高",
       "comment": "DX推進時の必須要件。情報漏洩リスク対策が重要"
     },
     {
       "keyword": "LLM",
-      "count": 44,
+      "count": 37,
       "relevance": "中",
       "comment": "生成AIの技術基盤。理解深化で適切な活用判断が可能"
     },
     {
       "keyword": "ChatGPT",
-      "count": 33,
+      "count": 36,
       "relevance": "中",
       "comment": "認知度高く試しやすい。ただし法人利用の規約確認必須"
     },
     {
-      "keyword": "自動化",
-      "count": 25,
-      "relevance": "高",
-      "comment": "人手不足解消と業務効率化の重要テーマ"
-    },
-    {
       "keyword": "クラウド",
-      "count": 22,
+      "count": 21,
       "relevance": "高",
       "comment": "インフラ整備の基盤。DX推進に不可欠な環境"
     },
     {
       "keyword": "サイバー攻撃",
-      "count": 20,
+      "count": 18,
       "relevance": "中",
       "comment": "リスクとしての認識は重要だが、対策は外部委託が現実的"
     },
@@ -134,34 +128,40 @@
       "comment": "Microsoft製品との統合で実装しやすく、採用企業多い"
     },
     {
+      "keyword": "自動化",
+      "count": 17,
+      "relevance": "高",
+      "comment": "人手不足解消と業務効率化の重要テーマ"
+    },
+    {
       "keyword": "ERP",
-      "count": 13,
+      "count": 15,
       "relevance": "中",
       "comment": "大規模導入コストが障壁。成長段階の企業向け"
     },
     {
-      "keyword": "業務効率化",
-      "count": 10,
-      "relevance": "高",
-      "comment": "中小企業の経営目標。生成AIで即効性期待"
-    },
-    {
       "keyword": "Microsoft 365",
-      "count": 7,
+      "count": 8,
       "relevance": "高",
       "comment": "既存利用率高く、AI統合で投資効果が見込める"
     },
     {
       "keyword": "スタートアップ",
-      "count": 6,
+      "count": 8,
       "relevance": "低",
       "comment": "中小企業との直接的な関連は限定的"
     },
     {
-      "keyword": "補助金",
-      "count": 4,
+      "keyword": "業務効率化",
+      "count": 6,
       "relevance": "高",
-      "comment": "DX推進や設備投資時に活用可能。経営層が注視すべき情報"
+      "comment": "中小企業の経営目標。生成AIで即効性期待"
+    },
+    {
+      "keyword": "中小企業",
+      "count": 5,
+      "relevance": "高",
+      "comment": "本リストの対象そのもの。関連記事が増加している"
     }
   ]
 }
