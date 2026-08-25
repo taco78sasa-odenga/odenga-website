@@ -75,69 +75,69 @@
   "weekly": [
     {
       "keyword": "DX",
-      "count": 207,
+      "count": 197,
       "relevance": "高",
       "comment": "経営課題として最優先。業務改革と競争力強化に直結する"
     },
     {
       "keyword": "Claude",
-      "count": 149,
+      "count": 154,
       "relevance": "中",
       "comment": "生成AI選択肢の一つ。導入検討時の比較対象となる"
     },
     {
       "keyword": "生成AI",
-      "count": 74,
+      "count": 76,
       "relevance": "高",
       "comment": "業務効率化の切り札。導入による競争優位性の獲得が急務"
     },
     {
       "keyword": "セキュリティ",
-      "count": 58,
+      "count": 54,
       "relevance": "高",
       "comment": "DX推進時の必須要件。情報漏洩リスク対策が重要"
     },
     {
-      "keyword": "LLM",
-      "count": 37,
-      "relevance": "中",
-      "comment": "生成AIの技術基盤。理解深化で適切な活用判断が可能"
-    },
-    {
       "keyword": "ChatGPT",
-      "count": 36,
+      "count": 43,
       "relevance": "中",
       "comment": "認知度高く試しやすい。ただし法人利用の規約確認必須"
     },
     {
+      "keyword": "LLM",
+      "count": 39,
+      "relevance": "中",
+      "comment": "生成AIの技術基盤。理解深化で適切な活用判断が可能"
+    },
+    {
       "keyword": "クラウド",
-      "count": 21,
+      "count": 24,
       "relevance": "高",
       "comment": "インフラ整備の基盤。DX推進に不可欠な環境"
     },
     {
+      "keyword": "ERP",
+      "count": 20,
+      "relevance": "中",
+      "comment": "経営管理システム。規模によっては導入検討の価値あり。"
+    },
+    {
+      "keyword": "自動化",
+      "count": 19,
+      "relevance": "高",
+      "comment": "定型業務削減で人員効率化。即実行可能な改善項目。"
+    },
+    {
       "keyword": "サイバー攻撃",
       "count": 18,
-      "relevance": "中",
-      "comment": "リスクとしての認識は重要だが、対策は外部委託が現実的"
+      "relevance": "高",
+      "comment": "中小企業も標的化。対策強化の緊急性が高い。"
     },
     {
       "keyword": "Copilot",
       "count": 17,
       "relevance": "高",
       "comment": "Microsoft製品との統合で実装しやすく、採用企業多い"
-    },
-    {
-      "keyword": "自動化",
-      "count": 17,
-      "relevance": "高",
-      "comment": "人手不足解消と業務効率化の重要テーマ"
-    },
-    {
-      "keyword": "ERP",
-      "count": 15,
-      "relevance": "中",
-      "comment": "大規模導入コストが障壁。成長段階の企業向け"
     },
     {
       "keyword": "Microsoft 365",
@@ -147,7 +147,7 @@
     },
     {
       "keyword": "スタートアップ",
-      "count": 8,
+      "count": 7,
       "relevance": "低",
       "comment": "中小企業との直接的な関連は限定的"
     },
@@ -159,9 +159,9 @@
     },
     {
       "keyword": "中小企業",
-      "count": 5,
+      "count": 6,
       "relevance": "高",
-      "comment": "本リストの対象そのもの。関連記事が増加している"
+      "comment": "施策・支援の対象。今後の変化に適応が必須。"
     }
   ]
 }
