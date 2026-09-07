@@ -89,61 +89,61 @@
   "weekly": [
     {
       "keyword": "DX",
-      "count": 203,
+      "count": 206,
       "relevance": "高",
       "comment": "業務効率化と競争力強化に直結する最優先課題"
     },
     {
       "keyword": "Claude",
-      "count": 148,
+      "count": 143,
       "relevance": "中",
       "comment": "生成AI選定時の有力候補として注目の価値あり"
     },
     {
       "keyword": "生成AI",
-      "count": 76,
+      "count": 79,
       "relevance": "高",
       "comment": "業務自動化と新規事業創出の重要な経営ツール"
     },
     {
       "keyword": "LLM",
-      "count": 52,
+      "count": 50,
       "relevance": "中",
       "comment": "生成AIの基盤技術として理解する価値がある"
     },
     {
       "keyword": "ChatGPT",
-      "count": 46,
+      "count": 44,
       "relevance": "中",
       "comment": "導入実績多く、スタートアップに適した選択肢"
     },
     {
       "keyword": "セキュリティ",
-      "count": 43,
+      "count": 42,
       "relevance": "高",
       "comment": "デジタル化推進時の必須課題。顧客信頼に影響"
     },
     {
       "keyword": "クラウド",
-      "count": 27,
+      "count": 24,
       "relevance": "高",
       "comment": "インフラ構築の主流。導入検討は必須"
     },
     {
-      "keyword": "ERP",
-      "count": 24,
-      "relevance": "中",
-      "comment": "経営統合システムとして検討価値あり"
-    },
-    {
       "keyword": "自動化",
-      "count": 21,
+      "count": 23,
       "relevance": "高",
       "comment": "生産性向上と労働力不足対策の要"
     },
     {
+      "keyword": "ERP",
+      "count": 20,
+      "relevance": "中",
+      "comment": "経営統合システムとして検討価値あり"
+    },
+    {
       "keyword": "Copilot",
-      "count": 14,
+      "count": 20,
       "relevance": "高",
       "comment": "Microsoft製品との統合で実装しやすく、採用企業多い"
     },
@@ -154,28 +154,28 @@
       "comment": "DX推進に伴う経営リスク。対策が急務"
     },
     {
-      "keyword": "補助金",
-      "count": 10,
-      "relevance": "高",
-      "comment": "DX投資の資金調達に直結する重要情報"
-    },
-    {
       "keyword": "中小企業",
       "count": 8,
       "relevance": "高",
       "comment": "自社の属性そのもの。施策が直接適用可能"
     },
     {
-      "keyword": "スタートアップ",
-      "count": 7,
-      "relevance": "低",
-      "comment": "中小企業との直接的な関連は限定的"
+      "keyword": "補助金",
+      "count": 6,
+      "relevance": "高",
+      "comment": "DX投資の資金調達に直結する重要情報"
     },
     {
       "keyword": "業務効率化",
       "count": 6,
       "relevance": "高",
       "comment": "中小企業の経営目標。生成AIで即効性期待"
+    },
+    {
+      "keyword": "Microsoft 365",
+      "count": 5,
+      "relevance": "高",
+      "comment": "既存利用率高く、AI統合で投資効果が見込める"
     }
   ]
 }
