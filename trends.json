@@ -1,169 +1,163 @@
 {
-  "updatedAt": "Wed Sep 09 2026 00:00:00 GMT+0900 (Japan Standard Time)",
+  "updatedAt": "Wed Sep 16 2026 00:00:00 GMT+0900 (Japan Standard Time)",
   "daily": [
     {
       "keyword": "DX",
-      "count": 31,
+      "count": 33,
       "relevance": "高",
-      "comment": "業務改革と競争力向上に不可欠。中小企業の重要課題。",
-      "sources": "Zenn トレンド"
-    },
-    {
-      "keyword": "LLM",
-      "count": 10,
-      "relevance": "中",
-      "comment": "生成AIの技術基盤。直接活用は限定的だが理解は重要。",
-      "sources": "ITmedia AI+・Zenn トレンド"
+      "comment": "業務効率化と競争力強化の急務。中小企業の経営課題そのもの。",
+      "sources": "Zenn トレンド・日経クロステック"
     },
     {
       "keyword": "生成AI",
       "count": 9,
       "relevance": "高",
-      "comment": "業務効率化の実践的ツール。導入が急速に広がり中。",
+      "comment": "業務自動化・生産性向上への即効性。導入検討が急速に進行中。",
       "sources": "ITmedia AI+・ITmedia NEWS"
     },
     {
-      "keyword": "セキュリティ",
-      "count": 8,
+      "keyword": "LLM",
+      "count": 7,
+      "relevance": "中",
+      "comment": "技術的関心は高いが、実装には専門知識と投資が必要。",
+      "sources": "Zenn トレンド"
+    },
+    {
+      "keyword": "クラウド",
+      "count": 6,
       "relevance": "高",
-      "comment": "DX・クラウド導入時の重大リスク。対策は急務。",
+      "comment": "基盤技術。オンプレミスからの移行が加速している。",
       "sources": "ITmedia AI+・ITmedia NEWS・Zenn トレンド"
     },
     {
       "keyword": "ChatGPT",
-      "count": 4,
+      "count": 5,
       "relevance": "中",
-      "comment": "具体的な生成AIツール。試験導入企業が増加中。",
-      "sources": "ITmedia AI+・ITmedia NEWS"
+      "comment": "認知度高い。実務活用例の収集・検証フェーズ。",
+      "sources": "ITmedia NEWS"
     },
     {
-      "keyword": "自動化",
+      "keyword": "Claude",
+      "count": 4,
+      "relevance": "中",
+      "comment": "選択肢として認識され始め。ChatGPTより利用は限定的。",
+      "sources": "ITmedia NEWS・Zenn トレンド"
+    },
+    {
+      "keyword": "セキュリティ",
       "count": 4,
       "relevance": "高",
-      "comment": "人手不足解決と生産性向上の直結テーマ。",
+      "comment": "クラウド・AI導入時の重大な懸念。対策が必須。",
+      "sources": "ITmedia AI+・Zenn トレンド・日経クロステック"
+    },
+    {
+      "keyword": "スタートアップ",
+      "count": 3,
+      "relevance": "低",
+      "comment": "自社には直接関係薄いが、提携・投資対象として注視。",
       "sources": "ITmedia AI+・日経クロステック"
     },
     {
       "keyword": "Copilot",
       "count": 2,
       "relevance": "中",
-      "comment": "Microsoft製生成AIツール。Office連携で導入検討進む。",
-      "sources": "日経クロステック"
-    },
-    {
-      "keyword": "中小企業",
-      "count": 2,
-      "relevance": "高",
-      "comment": "直接対象。DX・AI導入支援の政策・施策対象。",
-      "sources": "NHK ビジネス"
+      "comment": "Microsoft 365との連携で実装見込み。段階的に検討。",
+      "sources": "ITmedia AI+"
     },
     {
       "keyword": "ERP",
       "count": 2,
       "relevance": "中",
-      "comment": "基幹システム更新検討時の重要テーマ。クラウド化が主流。",
-      "sources": "ITmedia AI+・日経クロステック"
+      "comment": "大型投資。中規模企業の導入検討が増加傾向。",
+      "sources": "ITmedia AI+・Zenn トレンド"
     },
     {
-      "keyword": "Claude",
-      "count": 1,
-      "relevance": "低",
-      "comment": "高性能だが日本での知名度・導入事例は限定的。",
-      "sources": "Zenn トレンド"
-    },
-    {
-      "keyword": "業務効率化",
+      "keyword": "デジタル変革",
       "count": 1,
       "relevance": "高",
-      "comment": "経営課題の根幹。生成AI・自動化で実現期待。",
-      "sources": "ITmedia AI+"
-    },
-    {
-      "keyword": "クラウド",
-      "count": 1,
-      "relevance": "高",
-      "comment": "DX推進の基盤。コスト削減・スケーラビリティで利点大。",
+      "comment": "DXと同義。経営戦略として必要不可欠。",
       "sources": "日経クロステック"
+    },
+    {
+      "keyword": "Microsoft 365",
+      "count": 1,
+      "relevance": "高",
+      "comment": "既存導入率高い。AI統合で価値再認識中。",
+      "sources": "ITmedia AI+"
     }
   ],
   "weekly": [
     {
       "keyword": "DX",
-      "count": 202,
+      "count": 206,
       "relevance": "高",
-      "comment": "業務改革と競争力向上に不可欠。中小企業の重要課題。"
+      "comment": "業務効率化と競争力強化の急務。中小企業の経営課題そのもの。"
     },
     {
       "keyword": "Claude",
-      "count": 123,
-      "relevance": "低",
-      "comment": "高性能だが日本での知名度・導入事例は限定的。"
+      "count": 115,
+      "relevance": "中",
+      "comment": "選択肢として認識され始め。ChatGPTより利用は限定的。"
     },
     {
       "keyword": "生成AI",
-      "count": 75,
+      "count": 69,
       "relevance": "高",
-      "comment": "業務効率化の実践的ツール。導入が急速に広がり中。"
+      "comment": "業務自動化・生産性向上への即効性。導入検討が急速に進行中。"
     },
     {
       "keyword": "LLM",
-      "count": 52,
+      "count": 58,
       "relevance": "中",
-      "comment": "生成AIの技術基盤。直接活用は限定的だが理解は重要。"
+      "comment": "技術的関心は高いが、実装には専門知識と投資が必要。"
     },
     {
       "keyword": "ChatGPT",
-      "count": 48,
+      "count": 53,
       "relevance": "中",
-      "comment": "具体的な生成AIツール。試験導入企業が増加中。"
+      "comment": "認知度高い。実務活用例の収集・検証フェーズ。"
     },
     {
       "keyword": "セキュリティ",
-      "count": 45,
+      "count": 42,
       "relevance": "高",
-      "comment": "DX・クラウド導入時の重大リスク。対策は急務。"
+      "comment": "クラウド・AI導入時の重大な懸念。対策が必須。"
     },
     {
       "keyword": "クラウド",
-      "count": 25,
+      "count": 27,
       "relevance": "高",
-      "comment": "DX推進の基盤。コスト削減・スケーラビリティで利点大。"
+      "comment": "基盤技術。オンプレミスからの移行が加速している。"
+    },
+    {
+      "keyword": "ERP",
+      "count": 18,
+      "relevance": "中",
+      "comment": "大型投資。中規模企業の導入検討が増加傾向。"
     },
     {
       "keyword": "自動化",
-      "count": 23,
+      "count": 18,
       "relevance": "高",
       "comment": "人手不足解決と生産性向上の直結テーマ。"
     },
     {
-      "keyword": "ERP",
-      "count": 19,
-      "relevance": "中",
-      "comment": "基幹システム更新検討時の重要テーマ。クラウド化が主流。"
-    },
-    {
       "keyword": "Copilot",
-      "count": 16,
+      "count": 13,
       "relevance": "中",
-      "comment": "Microsoft製生成AIツール。Office連携で導入検討進む。"
+      "comment": "Microsoft 365との連携で実装見込み。段階的に検討。"
     },
     {
       "keyword": "サイバー攻撃",
-      "count": 13,
+      "count": 10,
       "relevance": "高",
       "comment": "DX推進に伴う経営リスク。対策が急務"
     },
     {
-      "keyword": "中小企業",
-      "count": 8,
+      "keyword": "Microsoft 365",
+      "count": 6,
       "relevance": "高",
-      "comment": "直接対象。DX・AI導入支援の政策・施策対象。"
-    },
-    {
-      "keyword": "業務効率化",
-      "count": 7,
-      "relevance": "高",
-      "comment": "経営課題の根幹。生成AI・自動化で実現期待。"
+      "comment": "既存導入率高い。AI統合で価値再認識中。"
     },
     {
       "keyword": "補助金",
@@ -172,10 +166,16 @@
       "comment": "DX投資の資金調達に直結する重要情報"
     },
     {
-      "keyword": "Microsoft 365",
+      "keyword": "スタートアップ",
+      "count": 5,
+      "relevance": "低",
+      "comment": "自社には直接関係薄いが、提携・投資対象として注視。"
+    },
+    {
+      "keyword": "業務効率化",
       "count": 5,
       "relevance": "高",
-      "comment": "既存利用率高く、AI統合で投資効果が見込める"
+      "comment": "経営課題の根幹。生成AI・自動化で実現期待。"
     }
   ]
 }
