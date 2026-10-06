@@ -89,49 +89,49 @@
   "weekly": [
     {
       "keyword": "DX",
-      "count": 208,
+      "count": 210,
       "relevance": "高",
       "comment": "業務効率化と競争力強化が急務。中小企業こそ導入メリットが大きい"
     },
     {
       "keyword": "Claude",
-      "count": 116,
+      "count": 115,
       "relevance": "中",
       "comment": "生成AIツールの選択肢。ChatGPTとの比較検討が必要な段階"
     },
     {
       "keyword": "生成AI",
-      "count": 72,
+      "count": 73,
       "relevance": "高",
       "comment": "業務自動化と生産性向上の実現手段。早期導入が競争優位性に"
     },
     {
       "keyword": "LLM",
-      "count": 67,
+      "count": 64,
       "relevance": "中",
       "comment": "生成AI活用の技術基盤。実装より活用方法の検討が優先"
     },
     {
-      "keyword": "ChatGPT",
-      "count": 53,
-      "relevance": "高",
-      "comment": "最も身近な生成AIツール。試験導入から本格活用への段階"
-    },
-    {
       "keyword": "セキュリティ",
-      "count": 41,
+      "count": 42,
       "relevance": "高",
       "comment": "DX推進時の必須要件。サイバーリスク対策は経営課題"
     },
     {
+      "keyword": "ChatGPT",
+      "count": 39,
+      "relevance": "高",
+      "comment": "最も身近な生成AIツール。試験導入から本格活用への段階"
+    },
+    {
       "keyword": "クラウド",
-      "count": 26,
+      "count": 21,
       "relevance": "高",
       "comment": "初期投資削減と柔軟性向上。中小企業にとって最適な選択肢"
     },
     {
       "keyword": "ERP",
-      "count": 19,
+      "count": 16,
       "relevance": "中",
       "comment": "基幹システム整備。クラウド化で中小企業の導入障壁が低下"
     },
@@ -143,37 +143,37 @@
     },
     {
       "keyword": "自動化",
-      "count": 13,
+      "count": 15,
       "relevance": "高",
       "comment": "生成AIとRPA活用で人手不足対策。即効性のある施策"
     },
     {
-      "keyword": "スタートアップ",
-      "count": 10,
-      "relevance": "低",
-      "comment": "中小企業との直接関連は薄い。投資トレンド参考程度"
-    },
-    {
       "keyword": "サイバー攻撃",
-      "count": 8,
+      "count": 15,
       "relevance": "中",
       "comment": "デジタル化に伴うリスク増加。対策体制の整備が緊急課題"
     },
     {
+      "keyword": "スタートアップ",
+      "count": 11,
+      "relevance": "低",
+      "comment": "中小企業との直接関連は薄い。投資トレンド参考程度"
+    },
+    {
       "keyword": "中小企業",
-      "count": 7,
+      "count": 6,
       "relevance": "高",
       "comment": "ターゲット層そのもの。施策やサービス情報の直接対象"
     },
     {
       "keyword": "業務効率化",
-      "count": 4,
+      "count": 5,
       "relevance": "高",
       "comment": "生成AI導入の主目的。コスト削減と競争力強化に直結"
     },
     {
       "keyword": "Microsoft 365",
-      "count": 4,
+      "count": 5,
       "relevance": "高",
       "comment": "既存導入率高い。AI統合で価値再認識中。"
     }
