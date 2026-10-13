@@ -89,57 +89,57 @@
   "weekly": [
     {
       "keyword": "DX",
-      "count": 210,
+      "count": 202,
       "relevance": "高",
       "comment": "業務効率化と競争力強化が急務。中小企業こそ導入メリットが大きい"
     },
     {
       "keyword": "Claude",
-      "count": 115,
+      "count": 119,
       "relevance": "中",
       "comment": "生成AIツールの選択肢。ChatGPTとの比較検討が必要な段階"
     },
     {
       "keyword": "生成AI",
-      "count": 73,
+      "count": 72,
       "relevance": "高",
       "comment": "業務自動化と生産性向上の実現手段。早期導入が競争優位性に"
     },
     {
       "keyword": "LLM",
-      "count": 64,
+      "count": 65,
       "relevance": "中",
       "comment": "生成AI活用の技術基盤。実装より活用方法の検討が優先"
     },
     {
       "keyword": "セキュリティ",
-      "count": 42,
+      "count": 41,
       "relevance": "高",
       "comment": "DX推進時の必須要件。サイバーリスク対策は経営課題"
     },
     {
       "keyword": "ChatGPT",
-      "count": 39,
+      "count": 34,
       "relevance": "高",
       "comment": "最も身近な生成AIツール。試験導入から本格活用への段階"
     },
     {
+      "keyword": "サイバー攻撃",
+      "count": 25,
+      "relevance": "中",
+      "comment": "デジタル化に伴うリスク増加。対策体制の整備が緊急課題"
+    },
+    {
       "keyword": "クラウド",
-      "count": 21,
+      "count": 23,
       "relevance": "高",
       "comment": "初期投資削減と柔軟性向上。中小企業にとって最適な選択肢"
     },
     {
       "keyword": "ERP",
-      "count": 16,
+      "count": 20,
       "relevance": "中",
       "comment": "基幹システム整備。クラウド化で中小企業の導入障壁が低下"
-    },
-    {
-      "keyword": "Copilot",
-      "count": 16,
-      "relevance": "中",
-      "comment": "Microsoft製品との統合。Officeユーザーの業務効率化に活用可"
     },
     {
       "keyword": "自動化",
@@ -148,16 +148,22 @@
       "comment": "生成AIとRPA活用で人手不足対策。即効性のある施策"
     },
     {
-      "keyword": "サイバー攻撃",
-      "count": 15,
-      "relevance": "中",
-      "comment": "デジタル化に伴うリスク増加。対策体制の整備が緊急課題"
-    },
-    {
       "keyword": "スタートアップ",
       "count": 11,
       "relevance": "低",
       "comment": "中小企業との直接関連は薄い。投資トレンド参考程度"
+    },
+    {
+      "keyword": "Copilot",
+      "count": 8,
+      "relevance": "中",
+      "comment": "Microsoft製品との統合。Officeユーザーの業務効率化に活用可"
+    },
+    {
+      "keyword": "補助金",
+      "count": 8,
+      "relevance": "高",
+      "comment": "DX投資の資金調達に直結する重要情報"
     },
     {
       "keyword": "中小企業",
@@ -167,15 +173,9 @@
     },
     {
       "keyword": "業務効率化",
-      "count": 5,
+      "count": 3,
       "relevance": "高",
       "comment": "生成AI導入の主目的。コスト削減と競争力強化に直結"
-    },
-    {
-      "keyword": "Microsoft 365",
-      "count": 5,
-      "relevance": "高",
-      "comment": "既存導入率高い。AI統合で価値再認識中。"
     }
   ]
 }
