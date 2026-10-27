@@ -89,31 +89,31 @@
   "weekly": [
     {
       "keyword": "DX",
-      "count": 202,
+      "count": 206,
       "relevance": "高",
       "comment": "業務効率化と競争力強化が急務。中小企業こそ導入メリットが大きい"
     },
     {
       "keyword": "Claude",
-      "count": 114,
+      "count": 102,
       "relevance": "中",
       "comment": "生成AIツールの選択肢。ChatGPTとの比較検討が必要な段階"
     },
     {
       "keyword": "生成AI",
-      "count": 77,
+      "count": 75,
       "relevance": "高",
       "comment": "業務自動化と生産性向上の実現手段。早期導入が競争優位性に"
     },
     {
       "keyword": "LLM",
-      "count": 66,
+      "count": 68,
       "relevance": "中",
       "comment": "生成AI活用の技術基盤。実装より活用方法の検討が優先"
     },
     {
       "keyword": "セキュリティ",
-      "count": 46,
+      "count": 57,
       "relevance": "高",
       "comment": "DX推進時の必須要件。サイバーリスク対策は経営課題"
     },
@@ -125,25 +125,25 @@
     },
     {
       "keyword": "クラウド",
-      "count": 22,
+      "count": 29,
       "relevance": "高",
       "comment": "初期投資削減と柔軟性向上。中小企業にとって最適な選択肢"
     },
     {
       "keyword": "サイバー攻撃",
-      "count": 22,
+      "count": 23,
       "relevance": "中",
       "comment": "デジタル化に伴うリスク増加。対策体制の整備が緊急課題"
     },
     {
       "keyword": "自動化",
-      "count": 16,
+      "count": 18,
       "relevance": "高",
       "comment": "生成AIとRPA活用で人手不足対策。即効性のある施策"
     },
     {
       "keyword": "ERP",
-      "count": 15,
+      "count": 13,
       "relevance": "中",
       "comment": "基幹システム整備。クラウド化で中小企業の導入障壁が低下"
     },
@@ -160,22 +160,22 @@
       "comment": "Microsoft製品との統合。Officeユーザーの業務効率化に活用可"
     },
     {
-      "keyword": "補助金",
-      "count": 7,
-      "relevance": "高",
-      "comment": "DX投資の資金調達に直結する重要情報"
-    },
-    {
       "keyword": "中小企業",
-      "count": 6,
+      "count": 7,
       "relevance": "高",
       "comment": "ターゲット層そのもの。施策やサービス情報の直接対象"
     },
     {
       "keyword": "Azure",
-      "count": 4,
+      "count": 7,
       "relevance": "低",
       "comment": "クラウドプラットフォーム。導入企業は限定的"
+    },
+    {
+      "keyword": "補助金",
+      "count": 6,
+      "relevance": "高",
+      "comment": "DX投資の資金調達に直結する重要情報"
     }
   ]
 }
